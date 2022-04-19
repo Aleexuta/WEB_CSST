@@ -107,7 +107,7 @@ function hideMenu() {
 
 
 var _idUser = 1;
-var role = 0; //0-guest, 1-sportiv, 2-instructor(admin);
+var role = 2; //0-guest, 1-sportiv, 2-instructor(admin);
 
 sessionStorage.setItem('myID', _idUser);
 sessionStorage.setItem('role', role);
