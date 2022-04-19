@@ -1,0 +1,247 @@
+@import url(culori.css);
+:root {
+  margin: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Amatic SC', cursive;
+  font-size: medium;
+}
+
+a {
+  color: var(--fourth-color);
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--third_color);
+}
+
+.all-profile {
+  -webkit-column-gap: 0;
+          column-gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  color: var(--third_color);
+  background-color: var(--fourth_color);
+  border: none;
+  border-radius: 5px;
+  border-width: 2px;
+  padding: 6px 10px;
+  border-color: var(--second_color);
+  margin: 15px;
+  font-weight: bold;
+  -webkit-box-shadow: 1px 1px 0px 0px var(--second_color);
+          box-shadow: 1px 1px 0px 0px var(--second_color);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, var(--second_color)), color-stop(50%, var(--fourth_color)));
+  background: linear-gradient(to top, var(--second_color) 50%, var(--fourth_color) 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+  cursor: pointer;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  position: relative;
+}
+
+button:hover {
+  background-position: right bottom;
+}
+
+.promote_button {
+  float: right;
+}
+
+.body-profile {
+  padding: 0;
+  margin: auto;
+  margin-top: 1em;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.body-profile h2 {
+  font-style: oblique;
+  text-shadow: 1px 0px var(--second_color);
+}
+
+.body-profile .profile-container {
+  font-weight: lighter;
+  background-color: #DBD4D2;
+  border-color: var(--second_color);
+  border-radius: 15px;
+  -webkit-box-shadow: 2px 2px 5px var(--second_color);
+          box-shadow: 2px 2px 5px var(--second_color);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+}
+
+.body-profile .myacc {
+  display: none;
+  visibility: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+}
+
+.body-profile .con {
+  display: none;
+  visibility: hidden;
+}
+
+.body-profile .formPass {
+  padding: 20px;
+  margin: 20px;
+}
+
+.body-profile .formPass input[type=password] {
+  background-color: var(--fourth_color);
+  border: none;
+  border-bottom: 3px solid var(--second_color);
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+  outline: none;
+}
+
+.body-profile .formPass input[type=password]:hover {
+  -webkit-transform: scaleX(1.3);
+          transform: scaleX(1.3);
+}
+
+.body-profile .formPass input[type=password]:focus {
+  -webkit-transform: scaleX(1.3);
+          transform: scaleX(1.3);
+}
+
+.body-profile .profil-table {
+  margin: auto;
+  cursor: default;
+}
+
+.body-profile .profil-table td, .body-profile .profil-table tr, .body-profile .profil-table th {
+  height: 30px;
+  width: 10em;
+  padding: 10px;
+  text-align: left;
+}
+
+.body-profile .profil-table .item {
+  text-align: right;
+}
+
+.back {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.cursuri-inscrise {
+  margin: 2em 0;
+}
+
+.cursuri-inscrise .curs_inscr-container {
+  background-color: var(--third_color);
+}
+
+.cursuri-inscrise ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  -webkit-columns: 3;
+          columns: 3;
+  margin-top: 3em;
+  -webkit-column-rule: 3px solid var(--second_color);
+          column-rule: 3px solid var(--second_color);
+  -webkit-column-rule-style: double;
+          column-rule-style: double;
+}
+
+.cursuri-inscrise li {
+  margin: 0px;
+  padding: 0px;
+  -webkit-column-break-inside: avoid;
+          break-inside: avoid-column;
+}
+
+.cursuri-inscrise .profil-cursuri {
+  width: auto;
+  border: 0;
+  padding: 20px;
+  margin: 0;
+  -webkit-column-break-inside: avoid;
+          break-inside: avoid-column;
+}
+
+.cursuri-inscrise .cursuri-back-profil {
+  margin: 0;
+  border: 0;
+  opacity: 0.6;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.cursuri-inscrise .cursuri-back-profil h3 {
+  margin: 0;
+  text-align: center;
+  color: var(--fourth_color);
+  opacity: 1;
+}
+
+.cursuri-inscrise a {
+  -webkit-text-decoration-style: double;
+          text-decoration-style: double;
+  text-decoration: underline;
+  color: var(--first_color);
+}
+
+.mycourses {
+  background-color: var(--fourth_color);
+  font-size: 1em;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+}
+
+.mycourses h3 {
+  padding: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .cursuri-inscrise ul {
+    -webkit-columns: 2;
+            columns: 2;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cursuri-inscrise ul {
+    -webkit-columns: 1;
+            columns: 1;
+  }
+}
+/*# sourceMappingURL=profil.css.map */

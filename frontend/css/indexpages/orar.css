@@ -1,0 +1,80 @@
+:root {
+  --first_color:#7BAE7F;
+  --second_color:#92140C;
+  --second_color_tint:#fbcdca;
+  --third_color:#353238;
+  --fourth_color:#DBD4D2;
+}
+
+#orar {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--fourth_color);
+  padding: 3em 0;
+}
+
+.table, th, td {
+  margin: 3em 5em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-collapse: collapse;
+  font-size: large;
+  text-align: center;
+  color: var(--fourth_color);
+  table-layout: fixed;
+}
+
+.table {
+  margin: auto;
+  width: 80%;
+}
+
+th {
+  width: 100px;
+}
+
+tr {
+  height: 50px;
+}
+
+td:nth-child(even) {
+  background-color: rgba(146, 20, 12, 0.1);
+}
+
+.ora {
+  width: 18%;
+  border: 1px solid black;
+}
+
+.orar-dynamic {
+  visibility: visible;
+  display: table;
+}
+
+.tit {
+  display: block;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media only screen and (max-width: 400px) {
+  .table {
+    width: 90%;
+    margin: auto;
+  }
+  th {
+    visibility: hidden;
+    display: none;
+  }
+  th, td {
+    border-bottom: 0.1px solid var(--fourth_color);
+  }
+}
+/*# sourceMappingURL=orar.css.map */

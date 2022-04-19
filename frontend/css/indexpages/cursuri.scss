@@ -1,0 +1,181 @@
+@import "../culori.css";
+a:hover {
+    color:var(--first_color);
+}
+a{
+    color:var(--third_color);
+}
+a:active{
+    color:var(--second_color);
+}
+.titlu-item{
+    justify-content: center;
+    align-self: center;
+    background-color: var(--fourth_color);
+    color:var(--third_color);
+    padding: 10px 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+#cursuri{
+
+    .cursuri-container{
+        justify-content: center;
+        align-items: center;
+        margin:auto;
+    }
+    ul{
+        list-style-type:none;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: center;
+        padding: 0;
+        text-align: center;
+        li{
+            float:left;
+            margin:10px;
+        }
+    }
+
+    .cursuri-item{
+        position: relative;
+        width:auto;
+        height: 15em;
+        border: 0;
+        display: inline-flex;
+        flex-wrap: wrap;
+
+        box-shadow: 1px 1px 4px 0px var(--fourth_color);
+        
+        border-radius: 5px ;
+    }
+    .cursuri-img {
+        width:auto;
+        max-width: 20em;
+        height: 15em;
+        border-radius: 5px ;
+    }
+    .cursuri-back{
+        
+        border-radius: 5px ;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        background-color: var(--second_color);
+        font-size: 20px;
+        text-align: center;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+        top:0;
+        bottom: 0;
+        left:0;
+        right: 0;
+        transition: opacity .7s, visibility .7s;
+        h6{
+            margin:0;
+        }
+    }
+    .cursuri-back:focus, .cursuri-item:hover .cursuri-back{
+        visibility: visible;
+        opacity: 0.8;
+    }
+
+    //de afisat cand e cont de admin(instructor)
+    .addCurs{
+      //  visibility: hidden;
+      //  display: none;
+        border: 3px dashed var(--fourth_color);
+        border-radius: 10px;
+        width:20em;
+        height: 15em;
+        display: none;
+        visibility: hidden;
+        cursor: pointer;
+        a{
+            color: var(--fourth_color);
+            text-decoration: none;
+            font-size: 10em;
+            text-align: center;
+            vertical-align: middle;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+    .addCurs:hover{
+
+        border-color:var(--first_color);
+        a{
+            color:var(--first_color);
+        }
+        
+    }
+
+
+}
+.controller{
+    cursor: pointer;
+}
+
+@media only screen and (max-width:700px) {
+
+    #cursuri{
+        .cursuri-item{
+            position: relative;
+            width:auto;
+            height: 10em;
+            border: 0;
+            display: inline-flex;
+            flex-wrap: wrap;
+            box-shadow: 1px 1px 4px 0px var(--fourth_color);           
+            border-radius: 5px ;
+        }
+        .cursuri-img {
+            width:auto;
+            max-width: 15em;
+            height: 10em;
+            border-radius: 5px ;
+        }
+        .addCurs{
+            height: 10em;
+            width:10em;
+            border: 3px dashed var(--fourth_color);
+            border-radius: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width:400px) {
+
+    #cursuri{
+        
+        .cursuri-item{
+            position: relative;
+            width:auto;
+            height: 8em;
+            border: 0;
+            display: inline-flex;
+            flex-wrap: wrap;
+            box-shadow: 1px 1px 4px 0px var(--fourth_color);           
+            border-radius: 5px ;
+        }
+        .cursuri-img {
+            width:auto;
+            max-width: 8em;
+            height: 8em;
+            border-radius: 5px ;
+        }
+        .addCurs{
+            height: 8em;
+            width:8em;
+            border: 3px dashed var(--fourth_color);
+            border-radius: 10px;
+
+        }
+    }
+}

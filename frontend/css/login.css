@@ -1,0 +1,188 @@
+:root {
+  --first_color:#7BAE7F;
+  --second_color:#92140C;
+  --third_color:#353238;
+  --fourth_color:#DBD4D2;
+  background-color: var(--third_color);
+}
+
+a:hover {
+  color: var(--first_color);
+}
+
+a {
+  color: var(--third_color);
+}
+
+a:active {
+  color: var(--second_color);
+}
+
+body {
+  margin: auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+label {
+  color: var(--second_color);
+}
+
+.titlu {
+  color: var(--second_color);
+  text-shadow: 1px 1px var(--third_color);
+}
+
+.login-containter {
+  border: 0px;
+  padding: 2em;
+  margin: auto;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -ms-grid;
+  display: grid;
+}
+
+.login-child {
+  width: auto;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.description {
+  float: center;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.citat {
+  color: var(--fourth_color);
+  font-family: cursive;
+  margin: 0;
+  padding: 0;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  line-height: 1;
+}
+
+.logoimg {
+  width: 100;
+}
+
+.loginform {
+  background-color: var(--fourth_color);
+  border-color: var(--second_color);
+  border-radius: 15px;
+  -webkit-box-shadow: 2px 2px 5px var(--second_color);
+          box-shadow: 2px 2px 5px var(--second_color);
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+::-webkit-input-placeholder {
+  color: var(--second_color);
+}
+
+:-ms-input-placeholder {
+  color: var(--second_color);
+}
+
+::-ms-input-placeholder {
+  color: var(--second_color);
+}
+
+::placeholder {
+  color: var(--second_color);
+}
+
+.camp {
+  width: 70%;
+  color: var(--second_color);
+  border-radius: 5px;
+  border-color: var(--second_color);
+  background-color: var(--fourth_color);
+}
+
+.camp:focus {
+  background-color: #e3cbc5;
+}
+
+.camp:hover {
+  -webkit-box-shadow: 1px 1px var(--second_color);
+          box-shadow: 1px 1px var(--second_color);
+}
+
+.contask {
+  color: var(--second_color);
+}
+
+.clearfix {
+  width: 70%;
+  margin: auto;
+  padding: 1em;
+}
+
+.btn {
+  color: var(--third_color);
+  background-color: var(--second_color);
+  border-radius: 5px;
+  border-width: 2px;
+  padding: 6px 10px;
+  border-color: var(--second_color);
+}
+
+.btn:hover {
+  -webkit-box-shadow: 1px 1px var(--third_color);
+          box-shadow: 1px 1px var(--third_color);
+}
+
+.cancelbtn {
+  background-color: var(--fourth_color);
+}
+
+@media only screen and (min-width: 420px) {
+  .login-child {
+    width: 20em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .login-containter {
+    width: 70%;
+    margin: 3em auto;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    vertical-align: middle;
+  }
+  .login-child {
+    float: left;
+    margin: auto;
+  }
+  .description {
+    margin-left: 2em;
+    padding: 0;
+    padding-left: 2em;
+    text-align: left;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    -ms-grid-column: 2;
+    grid-column: 2;
+  }
+  .citat {
+    padding-top: 2em;
+  }
+}
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,95 @@
+@import "../culori.css";
+
+#instructori{
+    width: 100%;
+    height: auto;
+    margin:0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+    line-height: 1;
+    .titlu-item {
+        padding: 0;
+        margin: 0;
+        margin-top:25px;
+        padding-top: 10px;
+        font-size: 50px;
+    }
+}
+.instructori-container{
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+.instr-div{
+    padding: 5px;
+    justify-content: center;
+    width:15em;
+    height: 20em;
+    position:relative;  
+    display: inline-flex;
+
+    .instructori-item{
+        width:15em;
+        height: 20em;
+    }
+    .instructori-descriere{
+        padding: 10px;
+        visibility: hidden;
+        text-align: center; 
+        position: absolute;
+        align-content: center;
+        opacity: 0;
+        height:0;
+        top:6em;
+    }
+}
+
+.instr-div:hover{
+    
+    .instructori-descriere{
+        visibility: visible;
+        top:10px;
+        padding: 30px;
+        opacity: 1;
+        transition: visibility 0 .3s, 
+            opacity .5s;
+        transition:  top .5s, height 0.3s ;
+        height: 13em;
+        background-color: var(--fourth_color);
+        opacity: .7;
+    }
+    .instructori-item{
+        visibility: hidden;
+        opacity: 0;
+        transition:  visibility 0s 0.3s,
+            opacity 0.3s linear,;
+    }
+}
+
+@media only screen and(max-width:700px){
+   
+        .instr-div{
+            height: 15em;
+            width: 12em;
+           
+        
+        .instructori-item{
+            height: 15em;
+            width: 12em;
+           
+        }
+        .instructori-descriere{
+            height: 10em;
+            width: 10em;
+            font-size: smaller;
+        }
+        }
+
+}

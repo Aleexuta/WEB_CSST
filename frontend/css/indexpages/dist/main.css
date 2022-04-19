@@ -1,0 +1,340 @@
+@import "../culori.css";
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+  background-color: var(--third_color);
+  margin: 0;
+  font-family: "Amatic SC", cursive;
+  font-size: larger;
+  overflow-x: hidden;
+}
+
+a {
+  font-weight: 900;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+  height: auto;
+}
+
+.body-container {
+  margin-top: 50px;
+}
+
+.body-item {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-cont {
+  margin: -2px;
+  padding: -2px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+  border-bottom: 3px solid #a3332b;
+  background-color: var(--third_color);
+}
+
+.meniu {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: auto;
+}
+.meniu a {
+  display: block;
+  color: var(--fourth_color);
+  padding: 8px;
+  padding-top: 15px;
+  height: 50px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.8s;
+}
+.meniu .profil {
+  float: right;
+  position: absolute;
+  right: 0;
+  color: #a3332b;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.meniu .profil a {
+  display: block;
+  color: var(--fourth_color);
+  padding: 8px;
+  padding-top: 15px;
+  height: 50px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.meniu .profil a:hover {
+  color: var(--first_color);
+}
+.meniu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  vertical-align: middle;
+  text-align: center;
+  height: 50px;
+  background-color: var(--third_color);
+}
+.meniu li {
+  float: left;
+  height: 50px;
+  text-align: center;
+  display: flex;
+}
+.meniu li a {
+  display: block;
+  color: var(--fourth_color);
+  padding: 8px;
+  padding-top: 15px;
+  height: 50px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.8s;
+}
+.meniu li a:hover {
+  background-color: #a3332b;
+  color: white;
+}
+
+.active {
+  background-color: #1b1a1b;
+  color: white;
+}
+
+.mobile-menu {
+  visibility: hidden;
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.mobile-menu-exit {
+  visibility: hidden;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+}
+
+#home {
+  opacity: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  text-align: center;
+}
+#home div {
+  color: var(--third_color);
+  text-decoration: none;
+  font-family: fantasy;
+  font-size: 3em;
+}
+#home .frame {
+  position: relative;
+  top: 0;
+  left: 0;
+  border-bottom: 3px solid var(--second_color);
+  box-shadow: 40px #a3332b;
+}
+#home .fundalblur {
+  width: 100%;
+  opacity: 0.3;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#home .text {
+  font-size: 6em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 2px black;
+  opacity: 0.4;
+  color: transparent;
+}
+
+.status {
+  float: right;
+  margin: 0;
+  right: 0;
+  padding: 0;
+  visibility: collapse;
+  display: none;
+}
+
+.even {
+  background-color: var(--fourth_color);
+  color: var(--third_color);
+}
+
+.odd {
+  background-color: var(--third_color);
+  color: var(--fourth_color);
+}
+
+@media only screen and (max-width: 800px) {
+  .profil {
+    display: none;
+    visibility: hidden;
+  }
+}
+@media only screen and (max-width: 700px) {
+  html {
+    scroll-padding-top: 0;
+  }
+  html body {
+    margin: 0;
+  }
+  html .body-container {
+    margin: 0;
+  }
+
+  .meniu .profil {
+    display: block;
+    visibility: visible;
+    bottom: 15px;
+    padding-left: 5px;
+    margin: auto;
+    float: left;
+    right: auto;
+    left: 0;
+    margin-left: 0;
+    position: absolute;
+    color: var(--fourth_color);
+  }
+
+  .menu {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+  }
+
+  .navbar-cont {
+    border: none;
+    height: 100%;
+    max-width: 15em;
+    width: 90%;
+    justify-content: right;
+    position: fixed;
+    float: right;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  #nc {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    transition: visibility 0.5s, opacity 0.5s, width 1s;
+  }
+
+  .meniu {
+    top: 0;
+    right: 0;
+    width: 90%;
+    max-width: 15em;
+    height: 100%;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+  }
+  .meniu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    margin-top: 50px;
+    overflow: hidden;
+    display: list-item;
+    text-align: left;
+    height: auto;
+    width: 15em;
+    top: 50px;
+  }
+  .meniu li {
+    height: 50px;
+    width: 90%;
+    max-width: 15em;
+    text-align: center;
+    float: left;
+    vertical-align: middle;
+  }
+  .meniu li a {
+    color: var(--fourth_color);
+    height: auto;
+    margin: 0;
+    padding: 0;
+    padding-top: 15px;
+    padding-left: 15px;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: background-color 0.8s;
+  }
+
+  #menu {
+    transition: visibility 0.5s, opacity 0.5s, width 1s;
+    visibility: hidden;
+  }
+
+  .mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    margin: 5px;
+    position: fixed;
+    z-index: 2;
+    cursor: pointer;
+    transition: display 0.5s, opacity 0.5s;
+  }
+
+  .mobile-menu-exit {
+    visibility: hidden;
+    opacity: 0;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    margin: 5px;
+    position: fixed;
+    z-index: 2;
+    cursor: pointer;
+    transition: right 1s ease;
+  }
+
+  #home .frame {
+    font-size: 2em;
+  }
+}
+@media only screen and (max-width: 700px) {
+  #home .frame {
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,125 @@
+#slider {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  margin: 0;
+}
+
+.my-slider {
+  margin: 0;
+  justify-content: center;
+}
+
+.event-container {
+  width: 100%;
+  margin: auto;
+}
+
+.event-subcontainer {
+  width: 90%;
+  margin: auto;
+}
+
+.controller {
+  display: flex;
+  justify-content: center;
+}
+
+#controls {
+  color: white;
+  font-size: 1rem;
+}
+
+.prev, .next {
+  margin: 15px;
+}
+
+.evenimente-item {
+  margin: 5px;
+  padding: 0;
+  width: 15em;
+  height: 15em;
+  position: relative;
+}
+.evenimente-item .img-event {
+  width: 15em;
+  height: 15em;
+  justify-content: center;
+  transition: 0.5s;
+}
+.evenimente-item .detalii-event {
+  visibility: hidden;
+  text-align: center;
+  align-content: center;
+  position: absolute;
+  background-color: var(--third_color);
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  padding: 5px;
+  color: var(--fourth-color);
+}
+.evenimente-item .detalii-event a {
+  color: white;
+  text-decoration: underline;
+}
+
+.evenimente-item:hover .detalii-event {
+  visibility: visible;
+  opacity: 0.9;
+  height: 7em;
+  width: auto;
+  padding-top: 10px;
+  color: white;
+  transition: visibility 0.5s, opacity 0.4s, height 0.5s;
+}
+.evenimente-item:hover .img-event {
+  opacity: 0.7;
+  transition: opacity 0.5s;
+}
+
+.add-articol {
+  border: 3px dashed var(--third_color);
+  border-radius: 10px;
+  width: 50%;
+  height: 5em;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  display: none;
+  visibility: hidden;
+  cursor: pointer;
+}
+.add-articol a {
+  color: var(--third_color);
+  text-decoration: none;
+  font-size: 6em;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-articol:hover {
+  cursor: pointer;
+  border-color: var(--first_color);
+}
+.add-articol:hover a {
+  color: var(--first_color);
+}
+
+@media only screen and (max-width: 600px) {
+  .evenimente-item {
+    width: 10em;
+    height: 10em;
+    position: relative;
+  }
+  .evenimente-item .img-event {
+    width: 10em;
+    height: 10em;
+  }
+}

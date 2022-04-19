@@ -1,0 +1,14 @@
+@import "../culori.css";
+:root {
+  background-color: aqua;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--second-colors);
+}

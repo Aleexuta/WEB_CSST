@@ -1,0 +1,114 @@
+@import url(d:\curs3\sem2\Tehnologii Web\Proiect\frontend\css\culori.css);
+#contact {
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  font-weight: 600;
+  width: 100%;
+}
+
+.titlu-item {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 /span 2;
+}
+
+.contact-container {
+  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -ms-grid;
+  display: grid;
+}
+
+.map {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  height: 20em;
+  width: 20em;
+  margin: 3em;
+}
+
+.img-cont {
+  height: 20px;
+  width: 20px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.img-cont:hover {
+  cursor: pointer;
+}
+
+.img-nelink {
+  height: 20px;
+  width: 20px;
+  margin: 2px;
+}
+
+.cont {
+  margin: 5em;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  line-height: 20px;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+@media only screen and (max-width: 800px) {
+  .titlu-item {
+    -ms-grid-row: 1;
+    grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/span 1;
+  }
+  .map {
+    -ms-grid-row: 3;
+    grid-row: 3;
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  .cont {
+    -ms-grid-row: 2;
+    grid-row: 2;
+    -ms-grid-column: 1;
+    grid-column: 1;
+    margin: 1em;
+    padding: 2em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .map {
+    height: 15em;
+    width: 15em;
+    margin: 2em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .map {
+    height: 12em;
+    width: 12em;
+    margin: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 15px;
+  }
+  .cont {
+    font-size: small;
+    max-width: 90%;
+    width: 12em;
+  }
+}
+/*# sourceMappingURL=contact.css.map */
