@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Creaza cont</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/signup.css">
+    </head>
+    <body>
+        <div class="signup-container">
+            <div class="signupform signup-child">
+                <form action="/user/signup" method="post" name="signupform">
+                    <div class="container">
+                        <h1 class="titlu">Creare cont</h1>
+                        <hr>
+                        <label for="lastname"><b>Nume</b></label>
+                        <br>
+                        <input class="camp" type="text" placeholder="Nume" name="lastname" required>
+                        <br>
+                        <label for="firstname"><b>Prenume</b></label>
+                        <br>
+                        <input class="camp" type="text" placeholder="Prenume" name="firstname" required>
+                        <br>
+                        <label for="birth"><b>Data Nașterii</b></label>
+                        <br>
+                        <input class="camp" type="date" placeholder="Data nașterii" name="birthday" required>
+                        <br>
+
+                        <label for="username"><b>Username</b></label>
+                        <br>
+                        <input class="camp" type="text" placeholder="Username" name="username" required>
+                        <br>
+                        <label for="email"><b>Email</b></label>
+                        <br>
+                        <input class="camp" type="text" placeholder="Email" name="email" required>
+                        <br>
+                        <label for="psw"><b>Parola</b></label>
+                        <br>
+                        <input class="camp" type="password" placeholder="Parola" name="psw" required>
+                        <br>
+                        <label for="psw-repeat"><b>Confirma parola</b></label>
+                        <br>
+                        <input class="camp" type="password" placeholder="Confirma parola" name="pswr" required>
+                        <br>
+                       
+                        <p class="contask">Ai deja cont? <a href="login.html">Conectează-te</a></p>
+                        <div class="clearfix">
+                            <button type="button" class="cancelbtn btn"><b>Anulează</b></button>
+                            <button type="submit" class="signupbtn btn"><b>Crează cont</b></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="description signup-child">
+                <div class="logo-cont description" id="logo">
+                    <img class="logoimg" id="logoIMG" src="Resurse/logo.png" >
+                    
+                </div>
+
+                <div class="citat description " id="citat">
+                    <p>Am urât fiecare minut de antrenament, dar mi-am spus: nu renunța, suferă acum și trăiește apoi întreaga viață ca un campion. – Muhamad Ali</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </body>
+</html>

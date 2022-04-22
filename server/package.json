@@ -1,0 +1,30 @@
+{
+  "name": "web_csst",
+  "version": "1.0.0",
+  "description": "Pentru tema de la curs folderul necesar este frontend. in fisierul js/main.js linia 125 se pune \r *0 pt guest (nu apare orarul custom al fiecarui sportiv)\r *1 pt cont normal (apare orarul custom ce va fi populat din baza de date)\r *2 pt contul admin (apar butoanele de adaugare curs, articol iar numele sportivilor pot fi apelate)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aleexuta/WEB_CSST.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aleexuta/WEB_CSST/issues"
+  },
+  "homepage": "https://github.com/Aleexuta/WEB_CSST#readme",
+  "dependencies": {
+    "auth-token": "^0.1.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.1",
+    "mongoose-morgan": "^1.0.17",
+    "Router": "^2.1.0"
+  }
+}

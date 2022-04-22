@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to CSST</title>
+        <link rel="stylesheet" href="css/indexpages/main.css">
+        <link rel="stylesheet" href="css/indexpages/orar.css">
+        <link rel="stylesheet" href="css/indexpages/cursuri.css">
+        <link rel="stylesheet" href="css/indexpages/instructori.css">
+        <link rel="stylesheet" href="css/indexpages/sportivi.css">
+        <link rel="stylesheet" href="css/indexpages/articole.css">
+        <link rel="stylesheet" href="css/indexpages/orar.css">
+        <link rel="stylesheet" href="css/indexpages/contact.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+
+
+    </head>
+
+    <body>
+        <div class="navbar" id="navv">
+            <div class="container">
+                <a onClick='displayMenu()' ><img id="mobile-cta" class="mobile-menu" src="Resurse/menu.png"></a>
+                <a onClick='hideMenu()' ><img id="mobile-exit" class="mobile-menu-exit" src="Resurse/close.png"></a>
+                    
+                <nav class="navbar-cont" id="nc">
+                    <div class="meniu" id="menu">
+                        <ul class="primary-nav">
+                            <li class="liel active" ><a href="#" >Home</a></li>
+                            <li class="cursuri liel" ><a href="#cursuri" >Cursuri</a></li>
+                            <li class="instructori liel" ><a href="#instructori" >Instructori</a></li>
+                            <li class="sportivi liel" ><a href="#sportivi" >Sportivi</a></li>
+                            <li class="evenimente liel" ><a href="#evenimente" >Evenimente</a></li>
+                            <li class="orar liel" ><a href="#orar" >Orar</a></li>
+                            <li class="contact liel" ><a href="#contact" >Contact</a></li>
+                            </ul>
+                            <div class="profil" ><a onclick="OpenProfileOrLogin()" >Profil 
+                                <span class="status con"> ( Connected )</span>
+                                <span class="status dis"> ( Disconnected )</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>  
+        </div>
+
+        <!-- <div class="body-container"> -->
+            <section id="home" class="body-item home">
+               
+                <div class="frame">
+                    <img class="fundalblur" src="./Resurse/fundal.jpg">
+                    <div class="text">CSST</div>
+                    <!-- <img class="fundal" src="./Resurse/fundal.jpg"> -->
+                   </div>
+            </section>
+        
+            <section id="cursuri" class="body-item odd">
+                <!-- cursurile -->
+                <!-- cred ca merg si dinamice -->
+                <h1 class="titlu-item">Cursurile noastre</h1>
+                <div class="cursuri-container">
+                    <ul>
+                       <!-- astea sunt dinamice din baza de date -->
+                        <li>
+                            <div class="cursuri-item">
+                                <img class="cursuri-img" src="Resurse/carpetRide.jpg">
+                                <div class="cursuri-back">
+                                    <h3 class="cursuri-name">Zbor cu covorul</h3>
+                                    Instructor: Aladdin
+                                    <br>
+                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs(1)">Inscriere</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cursuri-item">
+                                <img class="cursuri-img" src="Resurse/ice.jpg">
+                                <div class="cursuri-back">
+                                    <h3 class="cursuri-name">Controlarea ghetii</h3>
+                                    Instructor: Elsa
+                                    <br>
+                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs(2)">Inscriere</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cursuri-item">
+                                <img class="cursuri-img" src="Resurse/boat.jpg">
+                                <div class="cursuri-back">
+                                    <h3 class="cursuri-name">Navigatie</h3>
+                                    Instructor: Moana
+                                    <br>
+                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs(4)">Inscriere</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cursuri-item">
+                                <img class="cursuri-img" src="Resurse/arc.jpg">
+                                <div class="cursuri-back">
+                                    <h3 class="cursuri-name">Tras cu arcul</h3>
+                                    Instructor: Merida
+                                    <br>
+                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs(3)">Inscriere</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cursuri-item">
+                                <img class="cursuri-img" src="Resurse/lupte.jpg">
+                                <div class="cursuri-back">
+                                    <h3 class="cursuri-name">Lupte Japoneze</h3>
+                                    Instructor: Mulan
+                                    <br>
+                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs(5)">Inscriere</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cursuri-item addCurs adminOnly">
+                                <a onclick="AdaugareCurs()">+</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+            </section>
+            <section id="instructori" class="body-item even">
+                <!-- instructori -->
+                <!-- astea sunt statice -->
+                <!-- instructorii nu sunt adaugati din site ci de catre programator -->
+                <h1 class="titlu-item">Instructorii nostri</h1>
+                <div class="instructori-container">                  
+                    <div class="instr-div">
+                        <img class="instructori-item elsa-img" src="Resurse/Elsa.jpg">
+                        <div class="instructori-descriere elsa-des" >
+                            <h3><b>Elsa, regina din Arendelle</b></h3>
+                            <p>24 ani</p>
+                            <p>Experta in manevrarea ghetii si zapezii</p>
+                            <p>Celebra pentru inghetarea regatului si construirea unui castel in munti</p>     
+                        </div>
+                    </div>
+                    <div class="instr-div">
+                        <img class="instructori-item belle-img" src="Resurse/moana.jpg">
+                        <div class="instructori-descriere belle-des" >
+                            <h3><b>Moana from Motunui</b></h3>
+                            <p>16 ani</p>
+                            <p>Nivel avansat in navigatie</p>
+                            <p>Celebra pentru returnarea inimii lui Te Fiti</p>
+                        </div>     
+                    </div>
+                    <div class="instr-div">
+                        <img class="instructori-item" src="Resurse/Alladin.jpg">
+                        <div class="instructori-descriere" >
+                            <h3><b>Aladdin</b></h3>
+                            <p>18 ani</p>
+                            <p>Hot de buzunare si calaret de covoare</p>
+                            <p>Celebru pentru eliberarea duhului din lampa fermecata</p>
+                        </div>     
+                    </div>
+                    <div class="instr-div">
+                        <img class="instructori-item elsa-img" src="Resurse/mulan.jpg">
+                        <div class="instructori-descriere elsa-des" >
+                            <h3><b>Mulan</b></h3>
+                            <p>16 ani</p>
+                            <p>Experta in lupta cu sabia si corp la corp</p>
+                            <p>Celebra pentru salvarea regatului</p>
+                        </div>
+                    </div>
+                    <div class="instr-div">
+                        <img class="instructori-item elsa-img" src="Resurse/Brave.jpg">
+                        <div class="instructori-descriere elsa-des" >
+                            <h3><b>Merida from Brave</b></h3>
+                            <p>16 ani</p>
+                            <p>Experta in tras cu arcul si calarit</p>
+                            <p>Celebra pentru distrugerea blestemului asupra clanului</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section id="sportivi" class="body-item odd">
+                <!-- sportivi -->
+                <!-- dinamice -->
+                <h1 class="titlu-item">Sportivii nostri</h1>
+                <!-- in functie de restul userilor inscrisi -->
+                <div class="sportivi-container">
+                    <ul>
+                        <li class="sportiv"><a onclick="OpenProfile(1)">Belle</a></li>  <!--transmitem id-ul sportivului din bd-->
+                        <li class="sportiv"><a onclick="OpenProfile(2)">Bestia</a></li>
+                        <li class="sportiv"><a onclick="OpenProfile(3)">Elsa</a></li>
+                        <li class="sportiv"><a onclick="OpenProfile(4)">Anna</a></li>
+                        <li class="sportiv"><a onclick="OpenProfile(5)">Maui</a></li>
+                        <li class="sportiv"><a onclick="OpenProfile(6)">Aladdin</a></li>
+                        <li class="sportiv"><a onclick="OpenProfile(7)">Jasmine</a></li>
+
+                    </ul>
+                </div>
+                <div class="details-sportivi">
+                    <div class="group-img">
+                        <img src="Resurse/group.jpeg">
+                    </div>
+                </div>
+            </section>
+            <section id="evenimente" class="body-item even">
+                <!-- evenimente -->
+                <!-- dinamice? -->
+                <!-- adminul poate adauga(instructor) -->
+                <h1 class="titlu-item">Articole</h1>
+                <div class="add-articol adminOnly">
+                    <a onclick="AdaugareArticol()">+</a>
+                </div>
+
+                <section slider>
+                    <div class="event-container">
+                        <div class="event-subcontainer">
+                            <div class="slider-wrapper">
+                                <div class="my-slider">
+                                    <div>
+                                        <div class="evenimente-item">
+                                            <img class="img-event" src="Resurse/event1.webp">
+                                            <div class="detalii-event">
+                                                <p>Absolvirea primei serii de lupte japoneze</p>
+                                                <a target="_blank" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fbaby-cat&psig=AOvVaw0dBDze1Cm03bZYDifn5XSG&ust=1649686495204000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCJCnlp7XifcCFQAAAAAdAAAAABAD">Detalii</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="evenimente-item firstItem">
+                                            <img class="img-event" src="Resurse/Bella.jpg">
+                                            <div class="detalii-event">
+                                                <p>Prima intalnire cu Belle</p>
+                                                <a target="_blank" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rd.com%2Flist%2Ffunny-cat-photos%2F&psig=AOvVaw0dBDze1Cm03bZYDifn5XSG&ust=1649686495204000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCJCnlp7XifcCFQAAAAAdAAAAABAI">Detalii</a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div>
+                                        <div class="evenimente-item firstItem">
+                                            <img class="img-event" src="Resurse/lupte.jpg">
+                                            <div class="detalii-event">
+                                                <p>O prima intalnire cu Mulan</p>
+                                                <a target="_blank" href="https://www.theatlantic.com/science/archive/2017/06/cat-domination/530685/">Detalii</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="evenimente-item firstItem">
+                                            <img class="img-event" src="Resurse/bjj.jpg">
+                                            <div class="detalii-event">
+                                                <p>BJJ si printesele?</p>
+                                                <a target="_blank" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgiphy.com%2Fexplore%2Fcat&psig=AOvVaw0dBDze1Cm03bZYDifn5XSG&ust=1649686495204000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCJCnlp7XifcCFQAAAAAdAAAAABAV">Detalii</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="evenimente-item firstItem">
+                                            <img class="img-event" src="Resurse/moana.jpg">
+                                            <div class="detalii-event">
+                                                <p>Interviu cu Moana</p>
+                                                <a target="_blank"  href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DuRLfXd9qcgk&psig=AOvVaw172XzXYVBPkj4SHcMmedVP&ust=1649686775845000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCODMx6TYifcCFQAAAAAdAAAAABAD">Detalii</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="evenimente-item firstItem">
+                                            <img class="img-event" src="Resurse/Brave.jpg">
+                                            <div class="detalii-event">
+                                                <p>Va reusi Brave sa si revina?</p>
+                                                <a target="_blank" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ndtv.com%2Foffbeat%2Fwoman-accidentally-dyes-her-cat-yellow-pics-leave-internet-amused-2284763&psig=AOvVaw0dBDze1Cm03bZYDifn5XSG&ust=1649686495204000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNDiybTYifcCFQAAAAAdAAAAABAJ">Detalii</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                
+                                </div>
+                                <div class="controller" id="controls">
+                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section id="orar" class="body-item orar odd">
+                <h2>Cursurile existente</h2>
+                <table class="orar-fixed table" >
+                    <th>
+                        <td class="Ora">10-12</td>
+                        <td class="Ora">12-14</td>
+                        <td class="Ora">16-18</td>
+                        <td class="Ora">18-20</td>
+                        <td class="Ora">20-22</td>
+                    </th>
+                    <tr>
+                        <th>Luni</th>
+                        <td></td>
+                        <td></td>
+                        <td>Navigatie</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Marti</th>
+                        <td>Tras cu arcul</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Controlarea ghetii</td>
+                    </tr>
+                    <tr>
+                        <th>Miercuri</th>
+                        <td></td>
+                        <td>Lupte Japoneze</td>
+                        <td></td>
+                        <td></td>
+                        <td>Zburat cu covorul</td>
+                    </tr>
+                    <tr>
+                        <th>Joi</th>
+                        <td></td>
+                        <td></td>
+                        <td>Controlarea ghetii</td>
+                        <td>Tras cu arcul</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Vineri</th>
+                        <td></td>
+                        <td>Zburat cu covorul</td>
+                        <td>Zburat cu covorul</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Sambata</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Duminica</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+                <!-- orarul -->
+                <!-- clar dinamic cel de profil -->
+                <h2 class="con tit">Cursurile tale</h2>
+                <table class="orar-dynamic con table" >
+                    <th>
+                        <td class="Ora">10-12</td>
+                        <td class="Ora">12-14</td>
+                        <td class="Ora">16-18</td>
+                        <td class="Ora">18-20</td>
+                        <td class="Ora">20-22</td>
+                    </th>
+                    <tr>
+                        <th>Luni</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Marti</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Miercuri</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Joi</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Vineri</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Sambata</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Duminica</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+            </section>
+            <section id="contact" class="body-item even">
+                <div class="contact-container">
+                    <div class="titlu-item"><b>Contact</b></div>
+                    <!--contact-->
+                    <!-- nedinamic -->
+                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22803.549113864156!2d26.087162499999998!3d44.403541399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ffac8d58a64f%3A0x792b3c9b7b05fca5!2sCimitirul%20Bellu%20Bucure%C5%9Fti!5e0!3m2!1sro!2sro!4v1648454203577!5m2!1sro!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="cont">
+                        <img class="img-nelink " src="./Resurse/logo.png">
+                        CSST
+                        <br>
+                        <img class="img-nelink " src="./Resurse/placeholder.png">
+                        Calea Șerban Vodă 249, București 040208
+                        <br>
+                        <img class="img-nelink" src="./Resurse/phone-call.png">
+                        +40752906276
+                        <br><br>
+                        Contacteaza-ne
+                        <br><br>
+                        <a href="https://www.facebook.com/alexandra.neagu.332/" target="_blank"><img class="img-cont" src="./Resurse/facebook.png"></a>
+                        <a href="https://wa.me/40752906276" target="_blank"><img class="img-cont" src="./Resurse/whatsapp.png"></a>
+                        <a href="https://www.instagram.com/adacodruta/" target="_blank"><img class="img-cont" src="./Resurse/instagram.png"></a>
+                        
+                    </div>
+                </div>
+            </section>
+            <!-- ma gandesc ca profilul sa aiba o pagina diferita -->
+        <!-- </div> -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
