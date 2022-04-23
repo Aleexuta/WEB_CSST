@@ -5,7 +5,6 @@ const User = require("../Models/user");
 const mongoose=require('mongoose');
 
 const userRegister=(req,res,next) => {
-    console.log("sunt in user register");
     User.find({email:req.body.email})
         .exec()
         .then((user)=> {
@@ -26,19 +25,21 @@ const userRegister=(req,res,next) => {
                         birthday:req.body.birthday,
                         username:req.body.username,
                         email:req.body.email,
-                        password:req.body.psw
+                        password:req.body.psw,
+                        role:1
                     });
                     user.save()
                         .then(async(result)=> {
                             await result
                                 .save()
                                 .then((result1)=>{
-                                    console.log('User created ${result}')
+                                    console.log('User created '+ result._id)
                                     res.status(201).json({
                                         userDetails:{
                                             userId:result._id,
-                                        },
-                                    })
+                                            role:result.role
+                                        }
+                                    }) 
                                 })
                                 .catch((err)=>{
                                     console.log(400).json({
@@ -59,9 +60,10 @@ const userRegister=(req,res,next) => {
         .catch((err)=>{
             console.log(err)
             res.status(500).json({
-                messahe:err.toString()
+                message:err.toString()
             })
         });
+    
 }
 
 module.exports = {

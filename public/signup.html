@@ -8,7 +8,7 @@
     <body>
         <div class="signup-container">
             <div class="signupform signup-child">
-                <form action="/user/signup" method="post" name="signupform">
+                <form id="signup">
                     <div class="container">
                         <h1 class="titlu">Creare cont</h1>
                         <hr>
@@ -24,7 +24,6 @@
                         <br>
                         <input class="camp" type="date" placeholder="Data nașterii" name="birthday" required>
                         <br>
-
                         <label for="username"><b>Username</b></label>
                         <br>
                         <input class="camp" type="text" placeholder="Username" name="username" required>
@@ -63,7 +62,58 @@
             </div>
         </div>
 
-
+        <script type="text/javascript">
+            let form=document.getElementById('signup')
+            alert(form.elements.length)
+            let data={
+                firstname:form.elements.firstname.value,
+                lastname:form.elements.lastname.value,
+                username:form.elements.username.value,
+                birthday:form.elements.birthday.value,
+                email:form.elements.email.value,
+                psw:form.elements.psw.value,
+                pswr:form.elements.pswr.value,
+            }
+            form.addEventListener('submit',(e)=>{
+                e.preventDefault()
+                let data={
+                    firstname:form.elements.firstname.value,
+                    lastname:form.elements.lastname.value,
+                    username:form.elements.username.value,
+                    birthday:form.elements.birthday.value,
+                    email:form.elements.email.value,
+                    psw:form.elements.psw.value,
+                    pswr:form.elements.pswr.value,
+                }
+                fetch('http://localhost:3005/user/signup',{
+                    method:'POST',
+                    body:JSON.stringify(data),
+                    headers:{
+                        'Content-Type':'application/json'
+                    }
+                }).then(res=>{
+                   
+                    if(res.status==201) {
+                        alert("Te-ai inregistrat cu succes");
+                        window.location = "./index.html";
+                        // sessionStorage.setItem('myID',json.userDetails.userId);
+                        // sessionStorage.setItem('role',res.body.role);
+                        
+                        return res.json()
+                        
+                    }
+                    return Promise.reject(res);
+                
+                })
+                .then(response=>{
+                    alert(response.userDetails.userId)
+                    sessionStorage.setItem("myID",response.userDetails.userId);
+                    sessionStorage.setItem("role",response.userDetails.role);
+                })
+                .catch(errorRes=>{return errorRes.json()})
+                .then(error=>alert(error.message))
+            })
+        </script>
 
 
     </body>

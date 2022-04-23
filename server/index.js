@@ -22,10 +22,6 @@ mongoose
     .catch((err)=>console.log(err));
 mongoose.Promise=global.Promise;
 
-app.post('/signup1',(req,res)=>{
-    console.log("am intrat in functie")
-    res.end("Bunaa");
-})
 app.use('/user',userRouter);
 
 // catch 404 and forward to error handler

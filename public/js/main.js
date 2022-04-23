@@ -125,11 +125,13 @@ var _idUser=0;
 var role=0; //0-guest, 1-sportiv, 2-instructor(admin);
 
 
-sessionStorage.setItem('myID',_idUser);
-sessionStorage.setItem('role',role);
-sessionStorage.setItem('userSportiv',_idUser);
-var u=sessionStorage.getItem('myID');
-
+//sessionStorage.setItem('myID',_idUser);
+//sessionStorage.setItem('role',role);
+//sessionStorage.setItem('userSportiv',_idUser);
+_idUser=sessionStorage.getItem('myID');
+role=sessionStorage.getItem('role');
+alert(_idUser);
+alert(role);
 function InscriereCurs(idCurs){
     alert("inscriere la cursul "+idCurs );
 }
