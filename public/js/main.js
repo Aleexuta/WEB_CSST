@@ -160,7 +160,7 @@ function ShowCustomAccount()
     var con=document.getElementsByClassName("con");
     var add=document.getElementsByClassName("adminOnly");
     var orr=document.getElementsByClassName("orar-dynamic");
-    if(role==0){ //guest
+    if(role==0 || role==null){ //guest
         for(var i =0;i<con.length;i++){
             con[i].style.visibility="hidden";
             con[i].style.display="none";
@@ -213,12 +213,13 @@ function OpenProfileOrLogin(){
     //daca nu sunt conectat deschid login
     
     
-    if(role==0) {
-        window.location="login.html";
+    if(role>0) {
+
+        sessionStorage.setItem('userSportiv',_idUser);
+        window.location = "profil.html";   
       
     } else {
-        sessionStorage.setItem('userSportiv',_idUser);
-        window.location = "profil.html";       
+        window.location="login.html";
     }
     
 }

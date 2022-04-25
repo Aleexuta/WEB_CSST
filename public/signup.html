@@ -64,16 +64,6 @@
 
         <script type="text/javascript">
             let form=document.getElementById('signup')
-            alert(form.elements.length)
-            let data={
-                firstname:form.elements.firstname.value,
-                lastname:form.elements.lastname.value,
-                username:form.elements.username.value,
-                birthday:form.elements.birthday.value,
-                email:form.elements.email.value,
-                psw:form.elements.psw.value,
-                pswr:form.elements.pswr.value,
-            }
             form.addEventListener('submit',(e)=>{
                 e.preventDefault()
                 let data={
@@ -95,21 +85,14 @@
                    
                     if(res.status==201) {
                         alert("Te-ai inregistrat cu succes");
-                        window.location = "./index.html";
-                        // sessionStorage.setItem('myID',json.userDetails.userId);
-                        // sessionStorage.setItem('role',res.body.role);
-                        
+                        window.location = "./login.html";
                         return res.json()
                         
                     }
                     return Promise.reject(res);
                 
                 })
-                .then(response=>{
-                    alert(response.userDetails.userId)
-                    sessionStorage.setItem("myID",response.userDetails.userId);
-                    sessionStorage.setItem("role",response.userDetails.role);
-                })
+                .then(response=>{   })
                 .catch(errorRes=>{return errorRes.json()})
                 .then(error=>alert(error.message))
             })

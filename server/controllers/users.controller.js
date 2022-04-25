@@ -5,12 +5,12 @@ const User = require("../Models/user");
 const mongoose=require('mongoose');
 
 const userRegister=(req,res,next) => {
-    User.find({email:req.body.email})
+    User.find({$or :[{email:req.body.email},{username:req.body.username}]})
         .exec()
         .then((user)=> {
             if(user.length>=1){
                 res.status(409).json({
-                    message:"Email exists"
+                    message:"Email or username exists"
                 })
             } else {
                 if(req.body.psw!=req.body.pswr){
@@ -26,7 +26,8 @@ const userRegister=(req,res,next) => {
                         username:req.body.username,
                         email:req.body.email,
                         password:req.body.psw,
-                        role:1
+                        role:1,
+                        courses:[]
                     });
                     user.save()
                         .then(async(result)=> {
@@ -36,8 +37,7 @@ const userRegister=(req,res,next) => {
                                     console.log('User created '+ result._id)
                                     res.status(201).json({
                                         userDetails:{
-                                            userId:result._id,
-                                            role:result.role
+                                            userId:result._id
                                         }
                                     }) 
                                 })
@@ -66,7 +66,35 @@ const userRegister=(req,res,next) => {
     
 }
 
+
+const userLogin=(req,res,next) => {
+    User.find({$and :[{password:req.body.password},{username:req.body.username}]})
+        .exec()
+        .then((user)=> {
+            if(user.length<1){
+                res.status(410).json({
+                    message:"Username or password are not correct"
+                })
+            } else {
+                console.log(user[0]);
+                res.status(202).json({
+                    userDetails:{
+                        userId:user[0]._id,
+                        role:user[0].role
+                    }
+                }) 
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+            res.status(500).json({
+                message:err.toString()
+            })
+        });
+    
+}
+
 module.exports = {
-    //userLogin,
+    userLogin,
     userRegister,
   };

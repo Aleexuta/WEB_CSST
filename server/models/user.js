@@ -9,6 +9,7 @@ const userSchema=new mongoose.Schema({
     email:String,
     password:String,
     role:Number,
+    courses:[]
 });
 
 module.exports = mongoose.model("User", userSchema);

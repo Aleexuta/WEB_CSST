@@ -8,7 +8,7 @@
     <body>
         <div class="login-containter">
             <div class="loginform login-child">
-                <form>
+                <form id="login" >
                     <div class="container">
                         <h1 class="titlu">Conecteaza-te</h1>
                         <hr>
@@ -41,5 +41,37 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            let form=document.getElementById('login')
+            form.addEventListener('submit',(e)=>{
+                e.preventDefault()
+                let data={
+                    username:form.elements.username.value,
+                    password:form.elements.psw.value,
+                }
+                fetch('http://localhost:3005/user/login',{
+                    method:'POST',
+                    body:JSON.stringify(data),
+                    headers:{
+                        'Content-Type':'application/json'
+                    }
+                }).then(res=>{
+                    if(res.status==202) {
+                        alert("Logare cu succes");
+                        window.location="./index.html";
+                        return res.json()
+                    }
+                    return Promise.reject(res)
+                })
+                .then(response=>{
+                    alert(response.userDetails.userId)
+                    sessionStorage.setItem("myID",response.userDetails.userId);
+                    sessionStorage.setItem("role",response.userDetails.role);
+                })
+                .catch(errorRes=>{return errorRes.json()})
+                .then(error=>alert(error.message))
+            })
+
+        </script>
     </body>
 </html>
