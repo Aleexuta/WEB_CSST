@@ -90,6 +90,8 @@ button:hover {
 .body-profile .formPass {
   padding: 20px;
   margin: 20px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .body-profile .formPass input[type=password] {
   background-color: var(--fourth_color);

@@ -2,12 +2,12 @@
 var _idOpen=sessionStorage.getItem("userSportiv");
 var _idUser=sessionStorage.getItem("myID");
 var _role=sessionStorage.getItem("role");
-
+alert(_idOpen+"\n"+_idUser)
 function OpenAccount() {
     var add=document.getElementsByClassName("admin");
     var con=document.getElementsByClassName("myacc");
 
-    if(_idOpen==_idUser){ //contul meu
+    if(_idOpen ==_idUser){ //contul meu
         for(var i =0;i<con.length;i++){
             con[i].style.visibility="visible";
             con[i].style.display="block";

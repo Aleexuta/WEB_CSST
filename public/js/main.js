@@ -129,9 +129,8 @@ var role=0; //0-guest, 1-sportiv, 2-instructor(admin);
 //sessionStorage.setItem('role',role);
 //sessionStorage.setItem('userSportiv',_idUser);
 _idUser=sessionStorage.getItem('myID');
+sessionStorage.setItem('userSportiv',_idUser);
 role=sessionStorage.getItem('role');
-alert(_idUser);
-alert(role);
 function InscriereCurs(idCurs){
     alert("inscriere la cursul "+idCurs );
 }
@@ -216,7 +215,9 @@ function OpenProfileOrLogin(){
     if(role>0) {
 
         sessionStorage.setItem('userSportiv',_idUser);
-        window.location = "profil.html";   
+        var loc="/user/getme/"+_idUser;
+        alert(loc);
+        window.location = loc;   
       
     } else {
         window.location="login.html";

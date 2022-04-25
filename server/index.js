@@ -7,10 +7,11 @@ var userRouter=require('./routers/users.routes');
 
 var app=express();
 app.use(express.static('../public'))
+app.use('/public',express.static(__dirname+"../public"))
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-
+app.set('view engine', 'ejs');
 const dbURI='mongodb://localhost:27017/WEB_DB'
 
 mongoose

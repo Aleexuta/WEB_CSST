@@ -3,6 +3,7 @@ require("../node_modules/dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../Models/user");
 const mongoose=require('mongoose');
+const date = require('date-and-time');
 
 const userRegister=(req,res,next) => {
     User.find({$or :[{email:req.body.email},{username:req.body.username}]})
@@ -94,7 +95,44 @@ const userLogin=(req,res,next) => {
     
 }
 
+const getMe=(req,res,next) => {
+    User.find({_id:req.params.userid})
+        .exec()
+        .then((user)=> {
+            if(user.length<1){
+                res.status(410).json({
+                    message:"Something went wrong, you don't exist"
+                })
+            } else {
+                console.log(user[0].firstname);
+                var bir=user[0].birthday;
+
+                var data={ 
+                    userDetails:{
+                        userId:user[0]._id,
+                        firstname:user[0].firstname,
+                        lastname:user[0].lastname,
+                        username:user[0].username,
+                        birthday:date.format(bir,'DD/MM/YYYY'),
+                        email:user[0].email,
+                        courses:user[0].courses,
+                    }
+                }
+                //app.set('views', __dirname + '../views');
+                res.render('profil',{data:data});
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+            res.status(500).json({
+                message:err.toString()
+            })
+        });
+    
+}
+
 module.exports = {
     userLogin,
     userRegister,
+    getMe,
   };

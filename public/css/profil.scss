@@ -88,6 +88,8 @@ button:hover{
     .formPass{
         padding: 20px;
         margin:20px;
+        margin-bottom: 0;
+        padding-bottom: 0;
         input[type=password]{
            background-color: var(--fourth_color);
            border:none;

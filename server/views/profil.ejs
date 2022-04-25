@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Your profile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/profil.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    </head>
+    <body>
+
+
+
+        <div class="all-profile"> 
+            <div class="back">
+                <button class="backbutton"><a href="index.html"><b>Back</b></a></button>
+                <button class="promote_button admin"><a onclick="PromoveazaSportiv()">Promoveaza la instructor</a></button>
+            </div>
+            <div class="body-profile">
+                <h2>Informatii profil</h2>
+                <div class="profile-container">
+                    <table class="profil-table">
+                        <tr>
+                            <th class="item">Nume:</th>
+                            <td class="completed"><%=data.userDetails.lastname%></td>
+                        </tr>
+                        <tr>
+                            <th class="item">Prenume:</th>
+                            <td class="completed"><%=data.userDetails.firstname%></td>
+                        </tr>
+                        <tr>
+                            <th class="item">Username:</th>
+                            <td class="completed"><%=data.userDetails.username%></td>
+                        </tr>
+                        <tr>
+                            <th class="item">Email:</th>
+                            <td class="completed"><%=data.userDetails.email%></td>
+                        </tr>
+                        <tr>
+                            <th class="item">Data nasterii:</th>
+                            <td class="completed"><%=data.userDetails.birthday%></td>
+                        </tr>                
+                    </table>
+                    <form class="formPass myacc">
+                        Parola veche:<br> <input class="myacc" type="password" name="oldPass" required><br>
+                        Parola noua: <br> <input class="myacc" type="password" name="newPass" required><br>
+                   
+                        <button class="changePass">Schimba parola</button>
+                    </form>
+                    <button class="logout">Deconectare</button>
+                </div>
+                  
+            </div>
+
+            <div class="cursuri-inscrise">
+                    
+                <div class="mycourses" ><h3 id="cursmele">Cursurile mele</h3></div>
+                <!-- dinamic adaug cursurile -->
+                <div class="curs_inscr-container">
+                    <ul>
+
+                    </ul>
+                </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+    <script src="/js/profil.js"></script>
+</html>
