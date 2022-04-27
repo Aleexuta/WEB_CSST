@@ -2,7 +2,7 @@
 var _idOpen=sessionStorage.getItem("userSportiv");
 var _idUser=sessionStorage.getItem("myID");
 var _role=sessionStorage.getItem("role");
-alert(_idOpen+"\n"+_idUser)
+
 function OpenAccount() {
     var add=document.getElementsByClassName("admin");
     var con=document.getElementsByClassName("myacc");
@@ -29,4 +29,12 @@ function OpenAccount() {
     }
 }
 OpenAccount();
+var logbutton=document.getElementById('logout');
+logbutton.onclick=function Logout()
+{
 
+    sessionStorage.setItem("userSportiv",0);
+    sessionStorage.setItem("myID",0);
+    sessionStorage.setItem("role",0);
+    window.location="/";
+}

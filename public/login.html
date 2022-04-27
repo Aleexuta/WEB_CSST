@@ -58,7 +58,7 @@
                 }).then(res=>{
                     if(res.status==202) {
                         alert("Logare cu succes");
-                        window.location="./index.html";
+                        window.location="/";
                         return res.json()
                     }
                     return Promise.reject(res)

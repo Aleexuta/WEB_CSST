@@ -140,6 +140,8 @@ function InscriereCurs(idCurs){
 function AdaugareCurs(){
     alert("adauga curs nou");
 }
+
+
 function OpenProfile(idSportiv){
     //daca eu sunt admin at deschid profilul cu datele necesare
     //altfel nu
@@ -147,9 +149,13 @@ function OpenProfile(idSportiv){
     if(role==2){//sunt admin deci deschid profilul la sportivul cu numele(id ul)
         //transmit cumva sa mi incarce in pagina sportivului acel id.
         //alert(role);
-        window.location = "profil.html";
+        var loc="/user/getuser/"+idSportiv;
+        alert(loc);
+        window.location = loc;   
     }
 }
+
+
 function PromoveazaSportiv(idSportiv){
     
 }
@@ -216,7 +222,6 @@ function OpenProfileOrLogin(){
 
         sessionStorage.setItem('userSportiv',_idUser);
         var loc="/user/getme/"+_idUser;
-        alert(loc);
         window.location = loc;   
       
     } else {

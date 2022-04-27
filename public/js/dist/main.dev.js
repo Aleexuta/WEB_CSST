@@ -106,13 +106,15 @@ function hideMenu() {
 } //functii
 
 
-var _idUser = 1;
-var role = 2; //0-guest, 1-sportiv, 2-instructor(admin);
+var _idUser = 0;
+var role = 0; //0-guest, 1-sportiv, 2-instructor(admin);
+//sessionStorage.setItem('myID',_idUser);
+//sessionStorage.setItem('role',role);
+//sessionStorage.setItem('userSportiv',_idUser);
 
-sessionStorage.setItem('myID', _idUser);
-sessionStorage.setItem('role', role);
+_idUser = sessionStorage.getItem('myID');
 sessionStorage.setItem('userSportiv', _idUser);
-var u = sessionStorage.getItem('myID');
+role = sessionStorage.getItem('role');
 
 function InscriereCurs(idCurs) {
   alert("inscriere la cursul " + idCurs);
@@ -135,7 +137,9 @@ function OpenProfile(idSportiv) {
     //sunt admin deci deschid profilul la sportivul cu numele(id ul)
     //transmit cumva sa mi incarce in pagina sportivului acel id.
     //alert(role);
-    window.location = "profil.html";
+    var loc = "/user/getuser/" + idSportiv;
+    alert(loc);
+    window.location = loc;
   }
 }
 
@@ -148,7 +152,7 @@ function ShowCustomAccount() {
   var add = document.getElementsByClassName("adminOnly");
   var orr = document.getElementsByClassName("orar-dynamic");
 
-  if (role == 0) {
+  if (role == 0 || role == null) {
     //guest
     for (var i = 0; i < con.length; i++) {
       con[i].style.visibility = "hidden";
@@ -207,10 +211,11 @@ function LoginUser() {
 function OpenProfileOrLogin() {
   //daca sunt conectat deschid profilul
   //daca nu sunt conectat deschid login
-  if (role == 0) {
-    window.location = "login.html";
-  } else {
+  if (role > 0) {
     sessionStorage.setItem('userSportiv', _idUser);
-    window.location = "profil.html";
+    var loc = "/user/getme/" + _idUser;
+    window.location = loc;
+  } else {
+    window.location = "login.html";
   }
 }

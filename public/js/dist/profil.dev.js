@@ -37,3 +37,11 @@ function OpenAccount() {
 }
 
 OpenAccount();
+var logbutton = document.getElementById('logout');
+
+logbutton.onclick = function Logout() {
+  sessionStorage.setItem("userSportiv", 0);
+  sessionStorage.setItem("myID", 0);
+  sessionStorage.setItem("role", 0);
+  window.location = "/";
+};

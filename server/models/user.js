@@ -12,6 +12,7 @@ const userSchema=new mongoose.Schema({
     courses:[],
     grad:String,
     description:String,
+    imgUrl:String,
 });
 
 module.exports = mongoose.model("User", userSchema);

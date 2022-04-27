@@ -95,13 +95,13 @@ const userLogin=(req,res,next) => {
     
 }
 
-const getMe=(req,res,next) => {
+const getUser=(req,res,next) => {
     User.find({_id:req.params.userid})
         .exec()
         .then((user)=> {
             if(user.length<1){
                 res.status(410).json({
-                    message:"Something went wrong, you don't exist"
+                    message:"Something went wrong, this account don't exist"
                 })
             } else {
                 console.log(user[0].firstname);
@@ -130,9 +130,12 @@ const getMe=(req,res,next) => {
         });
     
 }
-
+const UpgradeUser=(req,res,next)=>{
+    //update la user
+}
 module.exports = {
     userLogin,
     userRegister,
-    getMe,
-  };
+    getUser,
+    UpgradeUser,
+};
