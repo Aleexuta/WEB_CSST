@@ -39,7 +39,11 @@ var userRegister = function userRegister(req, res, next) {
           email: req.body.email,
           password: req.body.psw,
           role: 1,
-          courses: []
+          courses: [],
+          grad: "",
+          description: "",
+          imgUrl: "",
+          admin: false
         });
 
         _user.save().then(function _callee(result) {
@@ -147,7 +151,12 @@ var getUser = function getUser(req, res, next) {
   });
 };
 
-var UpgradeUser = function UpgradeUser(req, res, next) {//update la user
+var UpgradeUser = function UpgradeUser(req, res, next) {
+  //update la instructor. primesc id ul si datele alea in plus
+  console.log("sunt in upgrade");
+  res.render('profil', {
+    data: "hh"
+  });
 };
 
 module.exports = {

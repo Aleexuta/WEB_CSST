@@ -18,6 +18,7 @@ function OpenAccount() {
         }
     } else {
         document.getElementById("cursmele").innerHTML="Cursurile sportivului"
+       
         for(var i =0;i<con.length;i++){
             con[i].style.visibility="hidden";
             con[i].style.display="none";
@@ -37,4 +38,15 @@ logbutton.onclick=function Logout()
     sessionStorage.setItem("myID",0);
     sessionStorage.setItem("role",0);
     window.location="/";
+}
+var promote=document.getElementById('promote');
+promote.onclick=function PromoveazaSportiv() 
+{
+    //deschid un formular intr o fereastra noua ce va fi un post catre upgrade]
+    //se incarca acolo numele si campurile ce vor trebui incarcate
+    alert("onclick");
+    var loc="/user/upgrade/"+_idOpen;
+    alert(loc);
+    window.location = loc;  
+    
 }

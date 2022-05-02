@@ -14,6 +14,7 @@ var userSchema = new mongoose.Schema({
   courses: [],
   grad: String,
   description: String,
-  imgUrl: String
+  imgUrl: String,
+  admin: Boolean
 });
 module.exports = mongoose.model("User", userSchema);

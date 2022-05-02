@@ -13,6 +13,7 @@ const userSchema=new mongoose.Schema({
     grad:String,
     description:String,
     imgUrl:String,
+    admin:Boolean,
 });
 
 module.exports = mongoose.model("User", userSchema);

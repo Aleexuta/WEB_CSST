@@ -28,7 +28,11 @@ const userRegister=(req,res,next) => {
                         email:req.body.email,
                         password:req.body.psw,
                         role:1,
-                        courses:[]
+                        courses:[],
+                        grad:"",
+                        description:"",
+                        imgUrl:"",
+                        admin:false,
                     });
                     user.save()
                         .then(async(result)=> {
@@ -130,9 +134,13 @@ const getUser=(req,res,next) => {
         });
     
 }
+
 const UpgradeUser=(req,res,next)=>{
-    //update la user
+    //update la instructor. primesc id ul si datele alea in plus
+    console.log("sunt in upgrade");
+    res.render('profil',{data:"hh"});
 }
+
 module.exports = {
     userLogin,
     userRegister,

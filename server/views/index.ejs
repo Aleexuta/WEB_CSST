@@ -96,15 +96,17 @@
                 <h1 class="titlu-item">Instructorii nostri</h1>
                 <div class="instructori-container">                  
                     
-                    <div class="instr-div">
-                        <img class="instructori-item elsa-img" src="Resurse/Brave.jpg">
-                        <div class="instructori-descriere elsa-des" >
-                            <h3><b>Merida from Brave</b></h3>
-                            <p>16 ani</p>
-                            <p>Experta in tras cu arcul si calarit</p>
-                            <p>Celebra pentru distrugerea blestemului asupra clanului</p>
+                    <% for(var i=0;i<date[1].length;i++){%>
+                        <div class="instr-div">
+                            <img class="instructori-item" src="<%=date[1][i].imgUrl%>">
+                            <div class="instructori-descriere " >
+                                <h3><b><%=date[1][i].firstname%>  <%=date[1][i].lastname%></b></h3>
+                                <p><%=date[1][i].birthday%></p>
+                                <p><%=date[1][i].grad%></p>
+                                <p><%=date[1][i].description%></p>
+                            </div>
                         </div>
-                    </div>
+                        <% } %> 
                 </div>
             </section>
             
@@ -116,9 +118,10 @@
                 <!-- in functie de restul userilor inscrisi -->
                 <div class="sportivi-container">
                     <ul>
-                        <% for(var i=0;i<sportiviArray.length;i++){%>
-                            <li class="sportivi"><a onclick="OpenProfile('<%=sportiviArray[i]._id%>')"><%= sportiviArray[i].username %></a></li>
-                        <% } %> 
+                        
+                        <% for(var i=0;i<date[0].length;i++){%>
+                            <li class="sportivi"><a onclick="OpenProfile('<%=date[0][i]._id%>')"><%=date[0][i].username%></a></li>
+                            <% } %> 
                     </ul>
                 </div>
                 <div class="details-sportivi">

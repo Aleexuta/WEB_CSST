@@ -138,7 +138,6 @@ function OpenProfile(idSportiv) {
     //transmit cumva sa mi incarce in pagina sportivului acel id.
     //alert(role);
     var loc = "/user/getuser/" + idSportiv;
-    alert(loc);
     window.location = loc;
   }
 }
