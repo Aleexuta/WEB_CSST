@@ -4,6 +4,8 @@ var express = require('express');
 
 var logger = require('morgan');
 
+var multer = require('multer');
+
 var mongoose = require('mongoose');
 
 var bodyParser = require('body-parser');
@@ -19,11 +21,14 @@ app.use(express["static"]('../public'));
 app.use('/public', express["static"](__dirname + "../public"));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: true
 }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 var dbURI = 'mongodb://localhost:27017/WEB_DB';
+var upload = multer({
+  dest: 'uploads/'
+});
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true

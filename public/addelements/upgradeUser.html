@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Promote user</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="../../../public/css/signup.css">
+    </head>
+    <body height="200" width="200">
+
+        <form id="promoteUser" >
+            <div class="container">
+                <label for="grad"><b>ID_ul sportivului</b></label>
+                <br>
+                <input class="camp" type="text" name="id" id="id" value="" readonly>
+                <br>
+
+                <label for="grad"><b>Gradul instructorului</b></label>
+                <br>
+                <input class="camp" type="text" placeholder="Grad" name="grad">
+                <br>
+
+                <label for="description"><b>Descrierea instructorului</b></label>
+                <br>
+                <input class="camp" type="text" placeholder="Descriere" name="descriere">
+                <br>
+
+                <label for="img"><b>Imaginea de fundal</b></label>
+                <br>
+                <input class="camp" type="file" id="myimg" name="myimg">
+                <br>
+            </div>
+            <button type="button" class="btn">Anuleaza</button>
+            <button type="submit" class="btn">Modifica</button>
+        </form>
+
+
+        <script src="../js/req.js"></script>
+        <script type="text/javascript">
+            
+            
+            var _idOpen=sessionStorage.getItem("userSportiv");
+            document.getElementById("id").value = _idOpen;
+
+        
+            
+            let form=document.getElementById('promoteUser')
+            form.addEventListener('submit',(e)=>{
+                e.preventDefault();
+                alert("hei");
+                // var formd=new FormData();
+                // formd.append('id',_idOpen);
+                // formd.append('grad',form.elements.grad.value);
+                // formd.append('descriere',form.elements.descriere.value);
+                // formd.append('myimg',img);
+                //const data=new URLSearchParams(formd);
+                //fd.append('id',_idOpen);
+                //fd.append('grad',form.elements.grad.value);
+                //fd.append('descriere',form.elements.descriere.value);
+                // fd.append('myimg',img);
+                let data={
+                    id:_idOpen,
+                    grad: form.elements.grad.value,
+                    descriere: form.elements.descriere.value,
+                }
+                console.log(data);
+                alert("buna");
+                fetch('http://localhost:3005/user/upgradeUser',{
+                    method:'POST',
+                    body:JSON.stringify(data),
+                    headers:{
+                        'Content-Type':'application/json'
+                    }                 
+                }).then(res=>{
+                   
+                    if(res.status==201) {
+                        alert("upgradat cu succes");
+                        return res.json()
+                        
+                    }
+                    return Promise.reject(res);
+                
+                })
+                .then(response=>{  window.close(); })
+                .catch(errorRes=>{return errorRes.json()})
+                .then(error=>alert(error.message))
+            })
+        </script>
+    </body>
+</html>

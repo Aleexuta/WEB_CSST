@@ -12,6 +12,20 @@ var mongoose = require('mongoose');
 
 var date = require('date-and-time');
 
+var path = require('path');
+
+var fs = require('fs-extra');
+
+var fs = require('fs-extra');
+
+var formidable = require("formidable");
+
+var multer = require("multer");
+
+var upload = multer({
+  dest: "uploads/"
+});
+
 var userRegister = function userRegister(req, res, next) {
   User.find({
     $or: [{
@@ -153,9 +167,60 @@ var getUser = function getUser(req, res, next) {
 
 var UpgradeUser = function UpgradeUser(req, res, next) {
   //update la instructor. primesc id ul si datele alea in plus
-  console.log("sunt in upgrade");
-  res.render('profil', {
-    data: "hh"
+  console.log("sunt in upgrade"); //var parser=JSON.parse(req.body);
+
+  console.log(req.body);
+  User.find({
+    _id: req.body.id
+  }).exec().then(function (user) {
+    if (user.length < 1) {
+      res.status(410).json({
+        message: "Something went wrong, this account don't exist"
+      });
+    } else {
+      // console.log(req.body);
+      // var path_temp=req.myimg.path;
+      // var currentFolder=__dirname+'/uploads';
+      // var filename="profil_img"+req.body.id+path.extname(path_temp);
+      // var new_path=currentFolder+'/'+filename;
+      // fs.move(path_temp,new_path,function(err){
+      //     if (err) return console.error(err)
+      //     console.log("file uploaded!")
+      // });
+      user[0].grad = req.body.grad;
+      user[0].description = req.body.descriere; //user[0].imgUrl=new_path;
+
+      user[0].role = 2;
+      console.log(user[0]);
+      user[0].save().then(function _callee2(result) {
+        return regeneratorRuntime.async(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return regeneratorRuntime.awrap(result.save().then(function (result1) {
+                  console.log('User modified ');
+                  res.status(201).json({});
+                })["catch"](function (err) {
+                  console.log(err);
+                  console.log(400).json({
+                    message: err.toString()
+                  });
+                }));
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        });
+      })["catch"](function (err) {
+        console.log(err);
+        res.status(500).json({
+          message: err.toString()
+        });
+      });
+    }
   });
 };
 

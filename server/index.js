@@ -1,5 +1,6 @@
 var express = require('express');
 var logger = require('morgan');
+const multer = require('multer');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 
@@ -11,10 +12,14 @@ var app=express();
 app.use(express.static('../public'))
 app.use('/public',express.static(__dirname+"../public"))
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 const dbURI='mongodb://localhost:27017/WEB_DB'
+
+
+const upload=multer({dest:'uploads/'});
+
 
 mongoose
     .connect(dbURI,{
@@ -24,6 +29,9 @@ mongoose
     .then(()=>console.log("Database connected"))
     .catch((err)=>console.log(err));
 mongoose.Promise=global.Promise;
+
+
+
 
 app.use('/user',userRouter);
 app.use('/',mainRouter);

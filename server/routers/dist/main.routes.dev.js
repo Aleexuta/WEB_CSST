@@ -3,8 +3,8 @@
 var express = require('express'); //const checkAuth=require('..')
 
 
-var userControllers = require('../controllers/main.controller');
+var mainControllers = require('../controllers/main.controller');
 
 var router = express.Router();
-router.get('/', userControllers.MainFetch);
+router.get('/', mainControllers.MainFetch);
 module.exports = router;
