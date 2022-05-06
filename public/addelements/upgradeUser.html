@@ -9,7 +9,7 @@
     </head>
     <body height="200" width="200">
 
-        <form id="promoteUser" >
+        <form id="promoteUser"  method="POST" action="/user/upgradeUser" enctype="multipart/form-data">
             <div class="container">
                 <label for="grad"><b>ID_ul sportivului</b></label>
                 <br>
@@ -36,56 +36,64 @@
         </form>
 
 
+        <form id="up" method="POST" action="/upload-image" enctype="multipart/form-data">
+            <div>
+                <label>Upload profile picture</label>
+                <input type="text" name="text">
+                <input type="file" name="myimg" required/>
+            </div>
+            <div>
+                <input type="submit" value="Upload" />
+            </div>
+        </form>
+
+
         <script src="../js/req.js"></script>
         <script type="text/javascript">
-            
-            
+
             var _idOpen=sessionStorage.getItem("userSportiv");
             document.getElementById("id").value = _idOpen;
+       
+            // let form=document.getElementById('promoteUser')
+            // form.addEventListener('submit',(e)=>{
+            //     e.preventDefault();
+            //     alert("hei");
 
-        
-            
-            let form=document.getElementById('promoteUser')
-            form.addEventListener('submit',(e)=>{
-                e.preventDefault();
-                alert("hei");
-                // var formd=new FormData();
-                // formd.append('id',_idOpen);
-                // formd.append('grad',form.elements.grad.value);
-                // formd.append('descriere',form.elements.descriere.value);
-                // formd.append('myimg',img);
-                //const data=new URLSearchParams(formd);
-                //fd.append('id',_idOpen);
-                //fd.append('grad',form.elements.grad.value);
-                //fd.append('descriere',form.elements.descriere.value);
-                // fd.append('myimg',img);
-                let data={
-                    id:_idOpen,
-                    grad: form.elements.grad.value,
-                    descriere: form.elements.descriere.value,
-                }
-                console.log(data);
-                alert("buna");
-                fetch('http://localhost:3005/user/upgradeUser',{
-                    method:'POST',
-                    body:JSON.stringify(data),
-                    headers:{
-                        'Content-Type':'application/json'
-                    }                 
-                }).then(res=>{
+            //     const fileField = document.querySelector('input[type="file"]');
+            //     var formd=new FormData();
+            //     formd.append('myimg',fileField.files[0]);
+            //     //const data=new URLSearchParams(formd);
+            //     formd.append('id',_idOpen);
+            //     formd.append('grad',form.elements.grad.value);
+            //     formd.append('descriere',form.elements.descriere.value);
+            //     // fd.append('myimg',img);
+               
+               
+            //     // let data={
+            //     //     id:_idOpen,
+            //     //     grad: form.elements.grad.value,
+            //     //     descriere: form.elements.descriere.value,
+                 
+            //     // }
+            //     alert("buna");
+            //     fetch('http://localhost:3005/upload-image',{
+            //         method:'POST',
+            //         body:formd
+                                  
+            //     }).then(res=>{
                    
-                    if(res.status==201) {
-                        alert("upgradat cu succes");
-                        return res.json()
+            //         if(res.status==201) {
+            //             alert("upgradat cu succes");
+            //             return res.json()
                         
-                    }
-                    return Promise.reject(res);
+            //         }
+            //         return Promise.reject(res);
                 
-                })
-                .then(response=>{  window.close(); })
-                .catch(errorRes=>{return errorRes.json()})
-                .then(error=>alert(error.message))
-            })
+            //     })
+            //     .then(response=>{  window.close(); })
+            //     .catch(errorRes=>{return errorRes.json()})
+            //     .then(error=>alert(error.message))
+            // })
         </script>
     </body>
 </html>

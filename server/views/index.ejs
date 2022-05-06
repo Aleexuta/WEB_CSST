@@ -80,6 +80,20 @@
                             </div>
                         </li>
                        
+                        <% for(var i=0;i<date[2].length;i++){%>
+                        <li>
+                            <div class="cursuri-item">
+                                <img class="cursuri-img" src="../<%=date[2][i].imgUrl%>">
+                                <div class="cursuri-back">
+                                    <h3 class="cursuri-name"><%=date[2][i].name%></h3>
+                                    Instructor: <%=date[2][i].instructor%>
+                                    <br>
+                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs('<%=date[2][i].id%>')">Inscriere</a>
+                                </div>
+                            </div>
+                        </li>
+                            <% } %> 
+                        
                         <li>
                             <div class="cursuri-item addCurs adminOnly">
                                 <a onclick="AdaugareCurs()">+</a>
@@ -98,12 +112,13 @@
                     
                     <% for(var i=0;i<date[1].length;i++){%>
                         <div class="instr-div">
-                            <img class="instructori-item" src="<%=date[1][i].imgUrl%>">
+                            <img class="instructori-item" src="../<%=date[1][i].imgUrl%>">
                             <div class="instructori-descriere " >
                                 <h3><b><%=date[1][i].firstname%>  <%=date[1][i].lastname%></b></h3>
                                 <p><%=date[1][i].birthday%></p>
                                 <p><%=date[1][i].grad%></p>
                                 <p><%=date[1][i].description%></p>
+                                <p><%=date[1][i].imgUrl%></p>
                             </div>
                         </div>
                         <% } %> 

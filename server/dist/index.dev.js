@@ -18,7 +18,7 @@ var res = require('express/lib/response');
 
 var app = express();
 app.use(express["static"]('../public'));
-app.use('/public', express["static"](__dirname + "../public"));
+app.use('/uploads', express["static"](__dirname + "/uploads"));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
   extended: true
@@ -26,8 +26,16 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 var dbURI = 'mongodb://localhost:27017/WEB_DB';
+var storage = multer.diskStorage({
+  destination: function destination(req, file, cb) {
+    cb(null, './uploads');
+  },
+  filename: function filename(req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
 var upload = multer({
-  dest: 'uploads/'
+  storage: storage
 });
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
@@ -38,6 +46,12 @@ mongoose.connect(dbURI, {
   return console.log(err);
 });
 mongoose.Promise = global.Promise;
+app.post('/upload-image', upload.single('myimg'), function (req, res, next) {
+  console.log(JSON.stringify(req));
+  console.log(JSON.stringify(file));
+  response += req.file.path;
+  return res.send(response);
+});
 app.use('/user', userRouter);
 app.use('/', mainRouter);
 app.get("/", function (req, res) {

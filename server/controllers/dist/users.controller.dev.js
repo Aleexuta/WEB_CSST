@@ -20,12 +20,6 @@ var fs = require('fs-extra');
 
 var formidable = require("formidable");
 
-var multer = require("multer");
-
-var upload = multer({
-  dest: "uploads/"
-});
-
 var userRegister = function userRegister(req, res, next) {
   User.find({
     $or: [{
@@ -165,11 +159,26 @@ var getUser = function getUser(req, res, next) {
   });
 };
 
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+  destination: function destination(req, file, cb) {
+    cb(null, './uploads');
+  },
+  filename: function filename(req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+var upload = multer({
+  storage: storage
+});
+
 var UpgradeUser = function UpgradeUser(req, res, next) {
   //update la instructor. primesc id ul si datele alea in plus
   console.log("sunt in upgrade"); //var parser=JSON.parse(req.body);
 
-  console.log(req.body);
+  console.log(JSON.stringify(req.body));
+  console.log(JSON.stringify(req.file));
   User.find({
     _id: req.body.id
   }).exec().then(function (user) {
@@ -188,8 +197,8 @@ var UpgradeUser = function UpgradeUser(req, res, next) {
       //     console.log("file uploaded!")
       // });
       user[0].grad = req.body.grad;
-      user[0].description = req.body.descriere; //user[0].imgUrl=new_path;
-
+      user[0].description = req.body.descriere;
+      user[0].imgUrl = req.file.path.replace("\\", "/");
       user[0].role = 2;
       console.log(user[0]);
       user[0].save().then(function _callee2(result) {
@@ -200,7 +209,9 @@ var UpgradeUser = function UpgradeUser(req, res, next) {
                 _context2.next = 2;
                 return regeneratorRuntime.awrap(result.save().then(function (result1) {
                   console.log('User modified ');
-                  res.status(201).json({});
+                  res.status(201).json({
+                    path: req.file.path
+                  });
                 })["catch"](function (err) {
                   console.log(err);
                   console.log(400).json({

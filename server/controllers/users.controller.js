@@ -8,8 +8,7 @@ const path=require('path');
 var fs = require('fs-extra');
 var fs=require('fs-extra');
 var formidable=require("formidable");
-const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+
 
 
 
@@ -143,11 +142,26 @@ const getUser=(req,res,next) => {
     
 }
 
+
+const multer = require('multer');
+var storage=multer.diskStorage({
+  destination:function(req,file,cb){
+    cb(null,'./uploads')
+  },
+  filename:function(req,file,cb){
+    cb(null,file.originalname)
+  }
+});
+var upload =multer({storage:storage});
+
+  
+
 const UpgradeUser=(req,res,next)=>{
     //update la instructor. primesc id ul si datele alea in plus
     console.log("sunt in upgrade");
     //var parser=JSON.parse(req.body);
-    console.log(req.body);
+    console.log(JSON.stringify(req.body));
+    console.log(JSON.stringify(req.file));
     User.find({_id:req.body.id})
         .exec()
         .then((user)=>{
@@ -169,7 +183,7 @@ const UpgradeUser=(req,res,next)=>{
                 
                 user[0].grad=req.body.grad;
                 user[0].description=req.body.descriere;
-                //user[0].imgUrl=new_path;
+                user[0].imgUrl=req.file.path.replace("\\","/");
                 user[0].role=2;
                 console.log(user[0]);
                 user[0].save()
@@ -179,7 +193,10 @@ const UpgradeUser=(req,res,next)=>{
                             .then((result1)=>{
                                 console.log('User modified ')
                                 res.status(201).json({
+                                    path:req.file.path
                                 }) 
+                                
+                            
                             })
                             .catch((err)=>{
                                 console.log(err);
