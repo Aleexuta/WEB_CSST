@@ -49,10 +49,9 @@ app.use('/course',courseRouter);
 app.use('/user',userRouter);
 app.use('/',mainRouter);
 
-
 app.get("/",(req,res)=>{
   //console.log("cevaaaa")
-  res.redirect("/main");
+  res.redirect("/0");
 })
 
 

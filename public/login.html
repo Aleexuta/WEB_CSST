@@ -58,15 +58,18 @@
                 }).then(res=>{
                     if(res.status==202) {
                         alert("Logare cu succes");
-                        window.location="/";
+                       
+                       
                         return res.json()
                     }
                     return Promise.reject(res)
                 })
                 .then(response=>{
-                    alert(response.userDetails.userId)
+                   
+                    alert("id "+response.userDetails.userId)
                     sessionStorage.setItem("myID",response.userDetails.userId);
                     sessionStorage.setItem("role",response.userDetails.role);
+                    window.location="/"+response.userDetails.userId;
                 })
                 .catch(errorRes=>{return errorRes.json()})
                 .then(error=>alert(error.message))

@@ -19,7 +19,23 @@ var date = require('date-and-time');
 var _require = require("../Models/user"),
     db = _require.db;
 
+var ObjectId = require('mongoose').Types.ObjectId;
+
 var main = require('../controllers/main.controller');
+
+function getMineProfile(idUser) {
+  //verificare 
+  console.log("user id aici " + idUser);
+
+  if (ObjectId.isValid(idUser)) {
+    console.log("user id valid  ");
+    return User.find({
+      _id: idUser
+    });
+  } else {
+    return [];
+  }
+}
 
 function getSportivi(req, res) {
   return User.find({
@@ -46,19 +62,21 @@ function MainFetch(req, res, next) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return regeneratorRuntime.awrap(Promise.all([getSportivi(), getInstructori(), getCourses()]));
+          return regeneratorRuntime.awrap(Promise.all([getSportivi(), getInstructori(), getCourses(), getMineProfile(req.params.userid)]));
 
         case 2:
           _ref = _context.sent;
           sportiviArray = _ref['sportiviArray'];
           instructoriArray = _ref['instructoriArray'];
           coursesArray = _ref['cursuriArray'];
+          profilulmeu = _ref['profilulmeu'];
           data = _ref;
+          console.log(req.params.userid);
           res.render("index", {
             date: data
           });
 
-        case 8:
+        case 10:
         case "end":
           return _context.stop();
       }

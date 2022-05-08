@@ -4,6 +4,6 @@ const mainControllers=require('../controllers/main.controller')
 
 
 const router=express.Router()
-router.get('/',mainControllers.MainFetch);
+router.get('/:userid',mainControllers.MainFetch);
 
 module.exports = router

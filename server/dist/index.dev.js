@@ -59,7 +59,7 @@ app.use('/user', userRouter);
 app.use('/', mainRouter);
 app.get("/", function (req, res) {
   //console.log("cevaaaa")
-  res.redirect("/main");
+  res.redirect("/0");
 }); // catch 404 and forward to error handler
 
 app.use(function (req, res, next) {
