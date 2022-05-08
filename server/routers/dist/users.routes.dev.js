@@ -24,4 +24,5 @@ router.post('/login', userControllers.userLogin);
 router.get('/getme/:userid', userControllers.getUser);
 router.get('/getuser/:userid', userControllers.getUser);
 router.post('/upgradeUser', upload.single('myimg'), userControllers.UpgradeUser);
+router.get('/registerCourse/:userid/:courseid', userControllers.RegisterCourse);
 module.exports = router;

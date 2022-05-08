@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 require("../node_modules/dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../Models/user");
+const Course = require("../Models/courses");
 const mongoose=require('mongoose');
 const date = require('date-and-time');
 const path=require('path');
@@ -144,6 +145,7 @@ const getUser=(req,res,next) => {
 
 
 const multer = require('multer');
+const { cursorTo } = require("readline");
 var storage=multer.diskStorage({
   destination:function(req,file,cb){
     cb(null,'./uploads')
@@ -169,18 +171,7 @@ const UpgradeUser=(req,res,next)=>{
                 res.status(410).json({
                     message:"Something went wrong, this account don't exist"
                 })
-            } else {
-                // console.log(req.body);
-                // var path_temp=req.myimg.path;
-                // var currentFolder=__dirname+'/uploads';
-                // var filename="profil_img"+req.body.id+path.extname(path_temp);
-                // var new_path=currentFolder+'/'+filename;
-                // fs.move(path_temp,new_path,function(err){
-                //     if (err) return console.error(err)
-                //     console.log("file uploaded!")
-    
-                // });
-                
+            } else{
                 user[0].grad=req.body.grad;
                 user[0].description=req.body.descriere;
                 user[0].imgUrl=req.file.path.replace("\\","/");
@@ -193,10 +184,7 @@ const UpgradeUser=(req,res,next)=>{
                             .then((result1)=>{
                                 console.log('User modified ')
                                 res.status(201).json({
-                                    path:req.file.path
                                 }) 
-                                
-                            
                             })
                             .catch((err)=>{
                                 console.log(err);
@@ -215,10 +203,64 @@ const UpgradeUser=(req,res,next)=>{
         });
 
 }
-
+const RegisterCourse=(req,res,next)=>{
+    console.log("inscriere curs de catre user");
+    console.log(req.body.userid);
+    User.find({_id:req.params.userid})
+    .exec()
+    .then((user)=>{
+        if(user.length<1){
+            res.status(410).json({
+                message:"Something went wrong, this account don't exist"
+            })
+        } else{
+            Course.find({_id:req.params.courseid}) 
+            .exec()
+            .then((course)=>{
+                if(course.length<1){
+                    res.status(410).json({
+                        message:"Something went wrong, this course don't exist"
+                    })
+                } else {
+                    //aici avem atat cursul cat si sportivul
+                    var cursnew={
+                        _id:course[0]._id,
+                        name:course[0].name,
+                        date:course[0].date,
+                    }
+                    user[0].courses.push(cursnew);
+                }});
+            console.log(user[0]);
+            user[0].save()
+                .then(async(result)=> {
+                    await result
+                        .save()
+                        .then((result1)=>{
+                            console.log('User modified, added course')   
+                            res.status(201).json({
+                                message:"all good"
+                            })
+                        })
+                        .catch((err)=>{
+                            console.log(err);
+                            console.log(400).json({
+                                message:err.toString()
+                            })
+                        });
+                })
+                .catch((err)=>{
+                    console.log(err)
+                    res.status(500).json({
+                        message:err.toString()
+                    })
+                });
+        }
+    });
+}
 module.exports = {
     userLogin,
     userRegister,
     getUser,
     UpgradeUser,
+    RegisterCourse,
 };

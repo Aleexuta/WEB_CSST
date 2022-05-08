@@ -8,6 +8,8 @@ var jwt = require("jsonwebtoken");
 
 var User = require("../Models/user");
 
+var Course = require("../Models/courses");
+
 var mongoose = require('mongoose');
 
 var date = require('date-and-time');
@@ -161,6 +163,9 @@ var getUser = function getUser(req, res, next) {
 
 var multer = require('multer');
 
+var _require = require("readline"),
+    cursorTo = _require.cursorTo;
+
 var storage = multer.diskStorage({
   destination: function destination(req, file, cb) {
     cb(null, './uploads');
@@ -187,15 +192,6 @@ var UpgradeUser = function UpgradeUser(req, res, next) {
         message: "Something went wrong, this account don't exist"
       });
     } else {
-      // console.log(req.body);
-      // var path_temp=req.myimg.path;
-      // var currentFolder=__dirname+'/uploads';
-      // var filename="profil_img"+req.body.id+path.extname(path_temp);
-      // var new_path=currentFolder+'/'+filename;
-      // fs.move(path_temp,new_path,function(err){
-      //     if (err) return console.error(err)
-      //     console.log("file uploaded!")
-      // });
       user[0].grad = req.body.grad;
       user[0].description = req.body.descriere;
       user[0].imgUrl = req.file.path.replace("\\", "/");
@@ -209,9 +205,7 @@ var UpgradeUser = function UpgradeUser(req, res, next) {
                 _context2.next = 2;
                 return regeneratorRuntime.awrap(result.save().then(function (result1) {
                   console.log('User modified ');
-                  res.status(201).json({
-                    path: req.file.path
-                  });
+                  res.status(201).json({});
                 })["catch"](function (err) {
                   console.log(err);
                   console.log(400).json({
@@ -235,9 +229,73 @@ var UpgradeUser = function UpgradeUser(req, res, next) {
   });
 };
 
+var RegisterCourse = function RegisterCourse(req, res, next) {
+  console.log("inscriere curs de catre user");
+  console.log(req.body.userid);
+  User.find({
+    _id: req.params.userid
+  }).exec().then(function (user) {
+    if (user.length < 1) {
+      res.status(410).json({
+        message: "Something went wrong, this account don't exist"
+      });
+    } else {
+      Course.find({
+        _id: req.params.courseid
+      }).exec().then(function (course) {
+        if (course.length < 1) {
+          res.status(410).json({
+            message: "Something went wrong, this course don't exist"
+          });
+        } else {
+          //aici avem atat cursul cat si sportivul
+          var cursnew = {
+            _id: course[0]._id,
+            name: course[0].name,
+            date: course[0].date
+          };
+          user[0].courses.push(cursnew);
+        }
+      });
+      console.log(user[0]);
+      user[0].save().then(function _callee3(result) {
+        return regeneratorRuntime.async(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return regeneratorRuntime.awrap(result.save().then(function (result1) {
+                  console.log('User modified, added course');
+                  res.status(201).json({
+                    message: "all good"
+                  });
+                })["catch"](function (err) {
+                  console.log(err);
+                  console.log(400).json({
+                    message: err.toString()
+                  });
+                }));
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        });
+      })["catch"](function (err) {
+        console.log(err);
+        res.status(500).json({
+          message: err.toString()
+        });
+      });
+    }
+  });
+};
+
 module.exports = {
   userLogin: userLogin,
   userRegister: userRegister,
   getUser: getUser,
-  UpgradeUser: UpgradeUser
+  UpgradeUser: UpgradeUser,
+  RegisterCourse: RegisterCourse
 };

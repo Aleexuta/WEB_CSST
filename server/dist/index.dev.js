@@ -14,6 +14,8 @@ var userRouter = require('./routers/users.routes');
 
 var mainRouter = require('./routers/main.routes');
 
+var courseRouter = require('./routers/course.routes');
+
 var res = require('express/lib/response');
 
 var app = express();
@@ -52,6 +54,7 @@ app.post('/upload-image', upload.single('myimg'), function (req, res, next) {
   response += req.file.path;
   return res.send(response);
 });
+app.use('/course', courseRouter);
 app.use('/user', userRouter);
 app.use('/', mainRouter);
 app.get("/", function (req, res) {

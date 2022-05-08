@@ -6,5 +6,4 @@ var courseControllers = require('../controllers/course.controller');
 
 var multer = require("multer");
 
-var router = express.Router();
-router.post('/addcourse');
+var router = express.Router(); //router.post('/add');

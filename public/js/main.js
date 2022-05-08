@@ -133,12 +133,18 @@ sessionStorage.setItem('userSportiv',_idUser);
 role=sessionStorage.getItem('role');
 function InscriereCurs(idCurs){
     alert("inscriere la cursul "+idCurs );
+
+    var nw=window.open( "/user/registerCourse/"+_idUser+"/"+idCurs, target="_blank","width:200px,height:200px");
+    
+  
 }
- function AdaugareArticol(){
+ function AdaugaArticol(){
     alert("Adauga articol nou");
 }
 function AdaugareCurs(){
-    alert("adauga curs nou");
+   var loc="/course/add";
+   window.open( "/addelements/addCourse.html", target="_blank","width:200px,height:200px");
+    
 }
 
 
@@ -155,9 +161,6 @@ function OpenProfile(idSportiv){
 }
 
 
-function PromoveazaSportiv(idSportiv){
-    
-}
 ShowCustomAccount();
 function ShowCustomAccount()
 {

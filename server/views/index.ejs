@@ -79,20 +79,23 @@
                                 </div>
                             </div>
                         </li>
-                       
+                        
                         <% for(var i=0;i<date[2].length;i++){%>
-                        <li>
+                            <li>
                             <div class="cursuri-item">
-                                <img class="cursuri-img" src="../<%=date[2][i].imgUrl%>">
+                                <img class="cursuri-img" src="<%=date[2][i].imgUrl%>">
                                 <div class="cursuri-back">
                                     <h3 class="cursuri-name"><%=date[2][i].name%></h3>
                                     Instructor: <%=date[2][i].instructor%>
                                     <br>
-                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs('<%=date[2][i].id%>')">Inscriere</a>
+                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs('<%=date[2][i]._id%>')">Inscriere</a>
                                 </div>
-                            </div>
+                            </div>  
                         </li>
-                            <% } %> 
+                        <% } %> 
+                        
+                     
+                        
                         
                         <li>
                             <div class="cursuri-item addCurs adminOnly">
@@ -336,6 +339,6 @@
             </section>
             <!-- ma gandesc ca profilul sa aiba o pagina diferita -->
         <!-- </div> -->
-        <script src="./js/main.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 </html>
