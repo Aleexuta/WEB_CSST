@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Promote user</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    </head>
+    <body height="200" width="200">
+
+        <form id="addcourse"  method="POST" action="/article/add" enctype="multipart/form-data">
+            <div class="container">
+               
+
+                <label for="name"><b>Numele articolului</b></label>
+                <br>
+                <input class="camp" type="text" placeholder="Nume" name="name">
+                <br>
+
+                <label for="link"><b>Linkul catre articol</b></label>
+                <br>
+                <input class="camp" type="text" placeholder="Link" name="link">
+                <br>
+
+                <label for="img"><b>Imaginea de fundal</b></label>
+                <br>
+                <input class="camp" type="file" id="myimg" name="myimg">
+                <br>
+            </div>
+            <button type="button" class="btn">Anuleaza</button>
+            <button type="submit" class="btn">Modifica</button>
+        </form>
+
+    </body>
+</html>

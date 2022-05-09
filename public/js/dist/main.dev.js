@@ -123,6 +123,7 @@ function InscriereCurs(idCurs) {
 
 function AdaugaArticol() {
   alert("Adauga articol nou");
+  window.open("/addelements/addArticle.html", target = "_blank", "width:200px,height:200px");
 }
 
 function AdaugareCurs() {

@@ -3,6 +3,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../Models/user");
 const Course=require("../Models/courses");
+const Article=require("../Models/article.js");
 const mongoose=require('mongoose');
 const multer=require('multer');
 const date = require('date-and-time');
@@ -10,7 +11,12 @@ const { db } = require("../Models/user");
 var ObjectId = require('mongoose').Types.ObjectId;
 
 
-const main=require('../controllers/main.controller')
+
+
+function getArticles(){
+    return Article.find();
+}
+
 function getMineProfile(idUser){
     //verificare 
     console.log("user id aici "+idUser);
@@ -33,9 +39,10 @@ function getCourses(){
 }
 async function MainFetch(req,res,next) {
     const data={'sportiviArray':sportiviArray,'instructoriArray' :instructoriArray,
-    'cursuriArray':coursesArray, 'profilulmeu':profilulmeu
+    'cursuriArray':coursesArray, 'profilulmeu':profilulmeu, 'articlearray':articlearray
     }=await Promise.all([
-        getSportivi(), getInstructori(),getCourses(),getMineProfile(req.params.userid)]);
+        getSportivi(), getInstructori(),getCourses(),getMineProfile(req.params.userid),
+    getArticles()]);
     console.log(req.params.userid);
     res.render("index",{
         date:data

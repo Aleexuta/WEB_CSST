@@ -10,6 +10,8 @@ var User = require("../Models/user");
 
 var Course = require("../Models/courses");
 
+var Article = require("../Models/article.js");
+
 var mongoose = require('mongoose');
 
 var multer = require('multer');
@@ -21,7 +23,9 @@ var _require = require("../Models/user"),
 
 var ObjectId = require('mongoose').Types.ObjectId;
 
-var main = require('../controllers/main.controller');
+function getArticles() {
+  return Article.find();
+}
 
 function getMineProfile(idUser) {
   //verificare 
@@ -62,7 +66,7 @@ function MainFetch(req, res, next) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return regeneratorRuntime.awrap(Promise.all([getSportivi(), getInstructori(), getCourses(), getMineProfile(req.params.userid)]));
+          return regeneratorRuntime.awrap(Promise.all([getSportivi(), getInstructori(), getCourses(), getMineProfile(req.params.userid), getArticles()]));
 
         case 2:
           _ref = _context.sent;
@@ -70,13 +74,14 @@ function MainFetch(req, res, next) {
           instructoriArray = _ref['instructoriArray'];
           coursesArray = _ref['cursuriArray'];
           profilulmeu = _ref['profilulmeu'];
+          articlearray = _ref['articlearray'];
           data = _ref;
           console.log(req.params.userid);
           res.render("index", {
             date: data
           });
 
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }

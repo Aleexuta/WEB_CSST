@@ -154,7 +154,7 @@
                 <!-- adminul poate adauga(instructor) -->
                 <h1 class="titlu-item">Articole</h1>
                 <div class="add-articol adminOnly">
-                    <a onclick="AdaugareArticol()">+</a>
+                    <a onclick="AdaugaArticol()">+</a>
                 </div>
 
                 <section slider>
@@ -162,7 +162,20 @@
                         <div class="event-subcontainer">
                             <div class="slider-wrapper">
                                 <div class="my-slider">
+                                
+                                <% for(var i=0;i<date[4].length;i++){%>
                                    
+                                <div>
+                                    <div class="evenimente-item">
+                                        
+                                        <img class="img-event" src="<%=date[4][i].imgUrl%>">
+                                        <div class="detalii-event">
+                                        <p><%=date[4][i].name%></p>
+                                        <a target="_blank" href="<%=date[4][i].link%>">Detalii</a>
+                                        </div>
+                                    </div>
+                                </div>   
+                                <%}%>
                                 
                                 </div>
                                 <div class="controller" id="controls">
@@ -472,15 +485,11 @@
 
        
         <!-- prin toate cursurile -->
-        <%=date[3].length%>
+
         <%if(date[3].length>0){%>
-            <%=date[3][0].courses.length%>
         <% for(var i=0;i<date[3][0].courses.length;i++){%> 
-            <%=date[3][0].courses[i].date.length%>
             <%for(var j=0;j<date[3][0].courses[i].date.length;j++){%>
                 <% var cla="--"%>
-                <%=date[3][0].courses[i].date[j].ziua%>
-                <%=date[3][0].courses[i].date[j].oraInceput%>
                 <%if(date[3][0].courses[i].date[j].ziua==="Monday"){%>
                     <%if(date[3][0].courses[i].date[j].oraInceput==="10-12"){%>
                         <% cla="ML1"%>
@@ -600,7 +609,6 @@
                         <% cla="MD5"%>
                     <%}%>
                 <%}%>
-                <%=date[3][0].courses[i].name%>
                 
         <script>
             document.getElementById('<%=cla%>').innerHTML+="<%=date[3][0].courses[i].name%>"+"/";

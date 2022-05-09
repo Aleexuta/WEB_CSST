@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 var userRouter=require('./routers/users.routes');
 var mainRouter=require('./routers/main.routes');
 var courseRouter=require('./routers/course.routes');
+var articleRouter=require('./routers/article.routes');
 const res = require('express/lib/response');
 
 var app=express();
@@ -46,6 +47,7 @@ app.post('/upload-image',upload.single('myimg'),function(req,res,next){
 })
 
 app.use('/course',courseRouter);
+app.use('/article',articleRouter);
 app.use('/user',userRouter);
 app.use('/',mainRouter);
 
