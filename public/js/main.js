@@ -132,14 +132,12 @@ _idUser=sessionStorage.getItem('myID');
 sessionStorage.setItem('userSportiv',_idUser);
 role=sessionStorage.getItem('role');
 function InscriereCurs(idCurs){
-    alert("inscriere la cursul "+idCurs );
 
     var nw=window.open( "/user/registerCourse/"+_idUser+"/"+idCurs, target="_blank","width:200px,height:200px");
     
   
 }
  function AdaugaArticol(){
-    alert("Adauga articol nou");
     window.open( "/addelements/addArticle.html", target="_blank","width:200px,height:200px");
 }
 function AdaugareCurs(){

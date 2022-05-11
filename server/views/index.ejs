@@ -68,17 +68,6 @@
                 <div class="cursuri-container">
                     <ul>
                        <!-- astea sunt dinamice din baza de date -->
-                        <li>
-                            <div class="cursuri-item">
-                                <img class="cursuri-img" src="Resurse/carpetRide.jpg">
-                                <div class="cursuri-back">
-                                    <h3 class="cursuri-name">Zbor cu covorul</h3>
-                                    Instructor: Aladdin
-                                    <br>
-                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs(1)">Inscriere</a>
-                                </div>
-                            </div>
-                        </li>
                         
                         <% for(var i=0;i<date[2].length;i++){%>
                             <li>
@@ -88,7 +77,7 @@
                                     <h3 class="cursuri-name"><%=date[2][i].name%></h3>
                                     Instructor: <%=date[2][i].instructor%>
                                     <br>
-                                    <a class="cursuri-inscriere-link" href="#" onclick="InscriereCurs('<%=date[2][i]._id%>')">Inscriere</a>
+                                    <a class="cursuri-inscriere-link con" href="#" onclick="InscriereCurs('<%=date[2][i]._id%>')">Inscriere</a>
                                 </div>
                             </div>  
                         </li>
@@ -118,10 +107,9 @@
                             <img class="instructori-item" src="../<%=date[1][i].imgUrl%>">
                             <div class="instructori-descriere " >
                                 <h3><b><%=date[1][i].firstname%>  <%=date[1][i].lastname%></b></h3>
-                                <p><%=date[1][i].birthday%></p>
+                              
                                 <p><%=date[1][i].grad%></p>
                                 <p><%=date[1][i].description%></p>
-                                <p><%=date[1][i].imgUrl%></p>
                             </div>
                         </div>
                         <% } %> 

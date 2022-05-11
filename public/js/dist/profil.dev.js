@@ -51,6 +51,9 @@ var promote = document.getElementById('promote');
 promote.onclick = function PromoveazaSportiv() {
   //deschid un formular intr o fereastra noua ce va fi un post catre upgrade]
   //se incarca acolo numele si campurile ce vor trebui incarcate
-  alert("onclick");
   window.open("/addelements/upgradeUser.html", target = "_blank", "width:200px,height:200px");
 };
+
+function RetragereCurs(idcurs) {
+  window.open('/user/removeCourse/' + _idUser + "/" + idcurs, target = "_blank", "width:200px,height:200px");
+}

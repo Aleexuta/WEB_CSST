@@ -292,10 +292,71 @@ var RegisterCourse = function RegisterCourse(req, res, next) {
   });
 };
 
+var RemoveCourse = function RemoveCourse(req, res, next) {
+  console.log("suntem in retragere din curs");
+  User.find({
+    _id: req.params.userid
+  }).exec().then(function (user) {
+    if (user.length < 1) {
+      res.status(410).json({
+        message: "Something went wrong, this account don't exist"
+      });
+    } else {
+      var pos;
+
+      for (var i = 0; i < user[0].courses.length; i++) {
+        if (user[0].courses[i]._id == req.params.courseid) {
+          pos = i;
+        }
+
+        user[0].courses.splice(pos, 1);
+      }
+
+      user[0].save().then(function _callee4(result) {
+        return regeneratorRuntime.async(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return regeneratorRuntime.awrap(result.save().then(function (result1) {
+                  console.log('User modified, added course');
+                  res.status(201).json({
+                    message: "all good"
+                  });
+                })["catch"](function (err) {
+                  console.log(err);
+                  console.log(400).json({
+                    message: err.toString()
+                  });
+                }));
+
+              case 2:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        });
+      })["catch"](function (err) {
+        console.log(err);
+        res.status(500).json({
+          message: err.toString()
+        });
+      });
+    }
+  });
+};
+
+var ChangePass = function ChangePass(req, res, next) {
+  console.log("sunt in schimbare parola");
+  console.log(req.body);
+};
+
 module.exports = {
   userLogin: userLogin,
   userRegister: userRegister,
   getUser: getUser,
   UpgradeUser: UpgradeUser,
-  RegisterCourse: RegisterCourse
+  RegisterCourse: RegisterCourse,
+  RemoveCourse: RemoveCourse,
+  ChangePass: ChangePass
 };

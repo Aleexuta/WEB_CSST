@@ -66,7 +66,7 @@
                 })
                 .then(response=>{
                    
-                    alert("id "+response.userDetails.userId)
+                  
                     sessionStorage.setItem("myID",response.userDetails.userId);
                     sessionStorage.setItem("role",response.userDetails.role);
                     window.location="/"+response.userDetails.userId;

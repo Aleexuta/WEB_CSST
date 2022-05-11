@@ -41,11 +41,11 @@
                             <td class="completed"><%=data.userDetails.birthday%></td>
                         </tr>                
                     </table>
-                    <form class="formPass myacc">
+                    <form id="PassForm" class="formPass myacc">
                         Parola veche:<br> <input class="myacc" type="password" name="oldPass" required><br>
                         Parola noua: <br> <input class="myacc" type="password" name="newPass" required><br>
                    
-                        <button class="changePass">Schimba parola</button>
+                        <button type="submit" class="changePass">Schimba parola</button>
                     </form>
                     <button class="logout myacc"><a id="logout" >Deconectare</a></button>
                 </div>
@@ -58,7 +58,18 @@
                 <!-- dinamic adaug cursurile -->
                 <div class="curs_inscr-container">
                     <ul>
-
+                        <% for(var i=0;i<data.userDetails.courses.length;i++){%>
+                            <li>
+                                <div class="profil-cursuri">
+                                    <div class="cursuri-back-profil">
+                                        <h3 class="cursuri-name-profil"><%=data.userDetails.courses[i].name%></h3>
+                                        <div class="curs-ascuns">
+                                            <a class="myacc" href ="" onclick="RetragereCurs('<%=data.userDetails.courses[i]._id%>')">Retragere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <%}%>
                     </ul>
                 </div>
                 </div>
@@ -69,4 +80,38 @@
 
     </body>
     <script src="/js/profil.js"></script>
+    <script type="text/javascript">
+        let form=document.getElementById('PassForm')
+        form.addEventListener('submit',(e)=>{
+            alert("am apasat");
+            console.log(form.elements);
+            e.preventDefault()
+            let data={
+                //id:data.userDetails._id,
+                old:form.elements.oldPass,
+                nou:form.elements.newPass
+            }
+            console.log(data);
+            fetch('http://localhost:3005/user/changePass',{
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }).then(res=>{
+               
+                if(res.status==201) {
+                    alert("Te-ai inregistrat cu succes");
+                    window.location = "./login.html";
+                    return res.json()
+                    
+                }
+                return Promise.reject(res);
+            
+            })
+            .then(response=>{   })
+            .catch(errorRes=>{return errorRes.json()})
+            .then(error=>alert(error.message))
+        })
+    </script>
 </html>
